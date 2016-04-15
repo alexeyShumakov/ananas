@@ -11,4 +11,8 @@ RSpec.describe CategoriesController, type: :controller do
     end
   end
 
+  describe "GET #newest" do
+
+  end
+
 end
