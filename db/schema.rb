@@ -22,25 +22,9 @@ ActiveRecord::Schema.define(version: 20160417130956) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "delayed_jobs", force: :cascade do |t|
-    t.integer  "priority",   default: 0, null: false
-    t.integer  "attempts",   default: 0, null: false
-    t.text     "handler",                null: false
-    t.text     "last_error"
-    t.datetime "run_at"
-    t.datetime "locked_at"
-    t.datetime "failed_at"
-    t.string   "locked_by"
-    t.string   "queue"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
-
   create_table "posts", force: :cascade do |t|
-    t.string   "sinopsis"
-    t.string   "body"
+    t.text     "sinopsis"
+    t.text     "body"
     t.string   "title"
     t.integer  "category_id"
     t.datetime "created_at",          null: false
@@ -56,7 +40,7 @@ ActiveRecord::Schema.define(version: 20160417130956) do
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.integer  "role"
+    t.integer  "role",                   default: 0
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -70,6 +54,7 @@ ActiveRecord::Schema.define(version: 20160417130956) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "avatar_file_name"

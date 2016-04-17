@@ -5,26 +5,6 @@
   </div>
 </div>
 <% @posts.each do |post| %>
-  <div class="row">
-    <div class="col-md-offset-3 col-md-9">
-      <h3> <%= post.title %> </h3>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-3">
-      <%= image_tag post.user.avatar.url(:small), class: 'img-circle center-block' %>
-      <p class='text-center'><%= post.user.email %> </p>
-    </div>
-
-    <div class="col-md-9">
-      <%= image_tag post.avatar.url(:medium) %>
-      <p>
-        <%= post.sinopsis %>
-      </p>
-      <%= link_to 'read this post ->', '#', class: 'pull-right' %>
-      <div class="clearfix"></div>
-      <hr>
-    </div>
-  </div>
+  <%= render partial: 'posts/preview', locals: { post: post } %>
 <% end %>
 

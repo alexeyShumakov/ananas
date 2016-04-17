@@ -1,4 +1,9 @@
-<p>
-  <strong>Title:</strong>
-  <%= @category.title %>
-</p>
+<div class="row">
+  <div class="col-md-offset-3 col-md-9">
+    <h1 class='text-center'><%= @category.title %></h1>
+    <hr>
+  </div>
+</div>
+<% @category.posts.each do |post| %>
+  <%= render partial: 'posts/preview', locals: { post: post } %>
+<% end %>

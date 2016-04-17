@@ -14,6 +14,7 @@ gem 'puma'
 gem 'devise'
 gem 'paperclip'
 gem 'simple_form'
+gem 'kramdown'
 
 group :development, :test do
   gem 'byebug'
