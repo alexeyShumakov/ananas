@@ -8,7 +8,38 @@
 </head>
 <body>
   <%= render 'layouts/messages' %>
-  <%= yield %>
+  <div class="jumborton">
+    <div class="container">
+      <h1 class='text-center'>Ananas</h1>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <ul class='nav nav-pills'>
+        <li> 
+          <%= link_to root_path do %>
+            <span class="glyphicon glyphicon-home"></span>
+          <% end %>
+        </li>
+        <% Category.all.each do |category| %>
+          <li> <%= link_to category.title, category_path(category.id) %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%= yield %>
+    <footer class="row">
+      <hr>
+      <ul class="list-inline text-center">
+        <li><a href="#">amazing link</a></li>
+        <li><a href="#">amazing link</a></li>
+        <li><a href="#">amazing link</a></li>
+        <li><a href="#">amazing link</a></li>
+      </ul>
+      <h3 class='text-center'>amazing footer here!</h3>
+      <h4 class='text-center'>ananas</h4>
+    </footer>
+  </div>
 
 </body>
 </html>
