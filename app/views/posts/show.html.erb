@@ -2,6 +2,11 @@
   <div class="col-md-3">
     <%= image_tag @post.user.avatar.url(:small), class: 'post__avatar img-circle center-block' %>
     <p class='text-center'><%= @post.user.email %> </p>
+    <p class='text-center'><%= @post.category.title %> </p>
+    <p class='text-center'>
+      <span class="glyphicon glyphicon-eye-open"></span> <%= @post.impressions %> 
+      <span class="glyphicon glyphicon-comment"></span> <%= @post.comments.count %>
+    </p>
   </div>
 
   <div class="col-md-9">
@@ -12,5 +17,14 @@
     <div>
       <%= to_markdown @post.body %>
     </div>
+
+    <h2>Комментарии</h2>
+    <hr>
+    <%= render partial: 'comments/form', locals: { post: @post, comment: @comment } %>
+    <hr>
+
+    <% @post.comments.each do |comment| %>
+      <%= render partial: 'comments/comment', locals: { comment: comment } %>
+    <% end %>
   </div>
 </div>

@@ -1,0 +1,12 @@
+<div class="media">
+  <div class="media-left">
+    <a href="#">
+      <%= image_tag comment.user.avatar.url(:small), class: 'media-object' %>
+    </a>
+  </div>
+
+  <div class="media-body">
+    <h4 class="media-heading"><%= comment.user.email %></h4>
+    <%= comment.body %>
+  </div>
+</div>

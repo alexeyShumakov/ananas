@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :destoy, :update]
   def show
+    @comment = Comment.new
+    @post.impressions += 1
+    @post.save
   end
 
   def edit

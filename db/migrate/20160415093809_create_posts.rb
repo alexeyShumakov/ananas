@@ -4,6 +4,7 @@ class CreatePosts < ActiveRecord::Migration
       t.text :sinopsis
       t.text :body
       t.string :title
+      t.integer :impressions, default: 0, null: false
       t.references :category, index: true, foreign_key: true
 
       t.timestamps null: false
