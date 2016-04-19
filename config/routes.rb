@@ -5,6 +5,6 @@ Rails.application.routes.draw do
 
   get 'categories/newest', to: 'categories#newest'
   resources :categories, only: [:show]
-  resources :posts, expect: [:index]
+  resources :posts, except: [:index]
   resources :comments
 end

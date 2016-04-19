@@ -3,6 +3,6 @@ FactoryGirl.define do
     sinopsis "MyString"
     body "MyString"
     title "MyString"
-    category nil
+    category
   end
 end

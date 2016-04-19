@@ -11,8 +11,14 @@ RSpec.describe CategoriesController, type: :controller do
     end
   end
 
-  describe "GET #newest" do
-
+  describe 'GET #newest' do
+    let(:user) { create :user }
+    let!(:post_model_1) { create :post, user: user }
+    let!(:post_model_2) { create :post, user: user }
+    it 'assigns last posts' do
+      get :newest
+      expect(assigns(:posts)).to eq([post_model_2, post_model_1])
+    end
   end
 
 end
