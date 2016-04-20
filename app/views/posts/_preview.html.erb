@@ -21,6 +21,7 @@
     <p>
       <%= to_markdown post.sinopsis %>
     </p>
+    <%= render partial: 'posts/crud_links', locals: { post: post } %>
     <%= link_to 'read this post ->', post_path(post.id), class: 'pull-right' %>
     <div class="clearfix"></div>
     <hr>

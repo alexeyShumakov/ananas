@@ -4,6 +4,11 @@ class Post < ActiveRecord::Base
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   belongs_to :category, counter_cache: true
   belongs_to :user
-  has_many :comments
+  has_many :comments, dependent: :destroy
+
   validates :sinopsis, :body, :title, presence: true
+  validates :user, presence: true
+  validates :category_id, presence: true
+  validates :category, presence: true
+  validates :avatar, attachment_presence: true
 end

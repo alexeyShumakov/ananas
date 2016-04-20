@@ -11,6 +11,9 @@
 
   <div class="col-md-9">
     <h2><%= @post.title %></h2>
+
+    <%= render partial: 'posts/crud_links', locals: { post: @post } %>
+
     <p><i><%= to_markdown @post.sinopsis %></i></p>
     <hr>
     <%= image_tag @post.avatar.url(:medium) %>

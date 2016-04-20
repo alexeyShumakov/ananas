@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe CommentsController, type: :controller do
 
-  let(:post_model ) { create(:post) }
   let(:user) { create(:user) }
+  let(:post_model ) { create(:post, user: user) }
   let(:valid_attrs) { { body: 'text', post_id: post_model.id } }
   let(:invalid_attrs) { { body: nil, post_id: post_model.id } }
 
