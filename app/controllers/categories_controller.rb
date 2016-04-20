@@ -1,8 +1,8 @@
 class CategoriesController < ApplicationController
   def newest
-    @posts = Post.first(10)
+    @posts = Post.includes(:user, :category).first(10)
   end
   def show
-    @category = Category.find(params[:id])
+    @category = Category.includes(posts: [:user]).find(params[:id])
   end
 end

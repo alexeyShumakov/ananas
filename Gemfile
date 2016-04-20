@@ -16,6 +16,7 @@ gem 'simple_form'
 gem 'kramdown'
 
 group :development, :test do
+  gem 'bullet'
   gem 'byebug'
   gem 'faker'
   gem 'quiet_assets'

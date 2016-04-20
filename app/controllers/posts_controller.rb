@@ -21,6 +21,6 @@ class PostsController < ApplicationController
   private
 
   def set_post
-    @post = Post.find(params[:id])
+    @post = Post.includes(:user, comments: [:user]).find(params[:id])
   end
 end
