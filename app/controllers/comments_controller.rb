@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:create, :update, :destroy]
+  before_action :set_comment, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!
+
+  after_action :verify_authorized, only: [:update, :destroy]
 
   def create
     @comment = Comment.new(comment_params)
@@ -19,6 +21,7 @@ class CommentsController < ApplicationController
   end
 
   def update
+    authorize @comment
     @post = @comment.post
     respond_to do |format|
       if @comment.update(comment_params)
@@ -32,6 +35,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    authorize @comment
     @post = @comment.post
     @comment.destroy
     respond_to do |format|
