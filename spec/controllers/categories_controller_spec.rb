@@ -2,9 +2,14 @@ require 'rails_helper'
 
 
 RSpec.describe CategoriesController, type: :controller do
+  let(:user) { create :major_moderator }
   let!(:category) { create :category }
+  before(:each) do
+    sign_in user
+  end
 
   describe "GET #show" do
+
     it 'assigns @category' do
       get :show, id: category.id
       expect(assigns :category).to eq(category)

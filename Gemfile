@@ -14,6 +14,7 @@ gem 'devise'
 gem 'paperclip'
 gem 'simple_form'
 gem 'kramdown'
+gem 'pundit'
 
 group :development, :test do
   gem 'bullet'

@@ -1,16 +1,23 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:edit, :show, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+
+  after_action :verify_authorized, only: [:new, :create, :edit, :update, :destroy]
+
   def newest
     @posts = Post.includes(:user, :category).first(10)
   end
+
   def show
   end
   
   def new
+    authorize Category
     @category = Category.new
   end
 
   def create
+    authorize Category
     @category = Category.new category_params
     if @category.save
       redirect_to @category, notice: 'Good!'
@@ -20,9 +27,11 @@ class CategoriesController < ApplicationController
   end
 
   def edit
+    authorize Category
   end
 
   def update
+    authorize Category
     if @category.update category_params
       redirect_to @category, notice: 'Good!'
     else
@@ -31,6 +40,7 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
+    authorize Category
     @category.destroy
     redirect_to root_path, notice: 'Deleted!'
   end

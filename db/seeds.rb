@@ -1,10 +1,14 @@
-categories = %w(кухня науки мода мобильное здоровье бизнес путешествия)
-user = User.create(email: 'test@mail.com', password: 'password', password_confirmation: 'password', confirmed_at: Date.today)
+categories      = %w(кухня науки мода мобильное здоровье бизнес путешествия)
+
+user            = User.create(email: 'user@mail.com',            password: 'password', password_confirmation: 'password', confirmed_at: Date.today, role: 0)
+major_moderator = User.create(email: 'major_moderator@mail.com', password: 'password', password_confirmation: 'password', confirmed_at: Date.today, role: 1)
+minor_moderator = User.create(email: 'minor_moderator@mail.com', password: 'password', password_confirmation: 'password', confirmed_at: Date.today, role: 2)
+
 categories.each do |category|
   cat = Category.create(title: category)
   3.times do
     post_params = {
-      user: user,
+      user: major_moderator,
       title: Faker::Hipster.sentence,
       body: Faker::Hipster.paragraph(10),
       avatar: File.new("#{Rails.root}/public/images/post/medium/missing.png"),

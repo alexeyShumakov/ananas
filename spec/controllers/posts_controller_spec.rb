@@ -2,9 +2,12 @@ require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
 
-  let(:user) { create :user }
+  let(:user) { create :major_moderator }
   let(:category) { create :category }
   let!(:post_model) { create :post, user: user, category: category }
+  before(:each) do
+    sign_in user
+  end
 
   describe "GET #show" do
     it "returns http success" do
