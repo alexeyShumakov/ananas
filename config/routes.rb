@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root 'categories#newest'
 
   get 'categories/newest', to: 'categories#newest'
-  resources :categories, only: [:show]
+  resources :categories, except: [:index]
   resources :posts, except: [:index]
   resources :comments
 end
