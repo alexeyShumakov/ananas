@@ -3,20 +3,25 @@ class PostsController < ApplicationController
   before_action :set_categories, only: [:edit, :new, :create, :update]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
+  after_action :verify_authorized, only: [:new, :create, :edit, :update, :destroy]
+
   def show
     @comment = Comment.new
     @post.impressions += 1
     @post.save
   end
 
-  def edit
-  end
-
   def new
+    authorize Post
     @post = Post.new
   end
 
+  def edit
+    authorize @post
+  end
+
   def create
+    authorize Post
     @post = Post.new post_params
     @post.user = current_user
     if @post.save
@@ -26,17 +31,19 @@ class PostsController < ApplicationController
     end
   end
 
-  def destroy
-    @post.destroy
-    redirect_to root_path, notice: 'Post was deleted.'
-  end
-
   def update
+    authorize @post
     if @post.update post_params
       redirect_to @post
     else
       render :edit
     end
+  end
+
+  def destroy
+    authorize @post
+    @post.destroy
+    redirect_to root_path, notice: 'Post was deleted.'
   end
 
   private
