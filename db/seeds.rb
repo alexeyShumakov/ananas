@@ -1,5 +1,6 @@
 categories      = %w(кухня науки мода мобильное здоровье бизнес путешествия)
 
+admin           = User.create(email: 'admin@mail.com',           password: 'password', password_confirmation: 'password', confirmed_at: Date.today, role: 1, is_admin: true)
 user            = User.create(email: 'user@mail.com',            password: 'password', password_confirmation: 'password', confirmed_at: Date.today, role: 0)
 major_moderator = User.create(email: 'major_moderator@mail.com', password: 'password', password_confirmation: 'password', confirmed_at: Date.today, role: 1)
 minor_moderator = User.create(email: 'minor_moderator@mail.com', password: 'password', password_confirmation: 'password', confirmed_at: Date.today, role: 2)
