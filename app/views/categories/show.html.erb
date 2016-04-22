@@ -5,6 +5,6 @@
     <hr>
   </div>
 </div>
-<% @category.posts.each do |post| %>
+<% @posts.each do |post| %>
   <%= render partial: 'posts/preview', locals: { post: post } %>
 <% end %>
