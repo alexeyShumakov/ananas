@@ -15,6 +15,7 @@ gem 'paperclip'
 gem 'simple_form'
 gem 'kramdown'
 gem 'pundit'
+gem 'administrate', '~> 0.1.5'
 
 group :development, :test do
   gem 'bullet'
