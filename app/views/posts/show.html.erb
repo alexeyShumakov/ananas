@@ -12,7 +12,9 @@
   <div class="col-md-9">
     <h2><%= @post.title %></h2>
 
-    <%= render partial: 'posts/crud_links', locals: { post: @post } %>
+    <% if user_signed_in? && policy(@post).update? %>
+      <%= render partial: 'posts/crud_links', locals: { post: @post } %>
+    <% end %>
 
     <p><i><%= to_markdown @post.sinopsis %></i></p>
     <hr>

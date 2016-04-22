@@ -1,4 +1,8 @@
 <ul>
-  <li><%= link_to 'create new post', new_post_path %> </li>
-  <li><%= link_to 'create new category', new_category_path %> </li>
+  <% if policy(Post).create? %>
+    <li><%= link_to 'create new post', new_post_path %> </li>
+  <% end %>
+  <% if policy(Category).create? %>
+    <li><%= link_to 'create new category', new_category_path %> </li>
+  <% end %>
 </ul>
