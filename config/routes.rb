@@ -2,15 +2,16 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users
-resources :categories
-resources :comments
-resources :posts
+    resources :categories
+    resources :comments
+    resources :posts
 
     root to: "users#index"
   end
 
   get 'private_office', to: 'users#private_office'
-  devise_for :users
+
+  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
   root 'categories#newest'
 

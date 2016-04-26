@@ -1,4 +1,5 @@
 <ul>
+  <%= current_user.username %>
   <% if policy(Post).create? %>
     <li><%= link_to 'create new post', new_post_path %> </li>
   <% end %>

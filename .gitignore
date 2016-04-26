@@ -1,7 +1,7 @@
 *~
 *.swp
 *.swo
-
+/.env
 /.idea
 .ruby-version
 /.bundle
