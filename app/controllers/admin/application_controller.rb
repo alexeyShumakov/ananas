@@ -9,6 +9,7 @@ module Admin
     before_filter :authenticate_admin
 
     def authenticate_admin
+      authenticate_user!
       unless current_user.is_admin
         redirect_to root_path, alert: 'you shell not pass'
       end
