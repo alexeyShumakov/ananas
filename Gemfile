@@ -16,6 +16,7 @@ gem 'simple_form'
 gem 'kramdown'
 gem 'pundit'
 gem 'administrate', '~> 0.1.5'
+gem 'whenever', :require => false
 
 group :development, :test do
   gem 'bullet'

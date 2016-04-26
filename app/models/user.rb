@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   enum role: [:user, :major_moderator, :minor_moderator]
-  validates :username, presence: true
+  validates :username, :weekly_mailing, presence: true
 
   def owner_of?(model)
     model.user == self

@@ -1,0 +1,9 @@
+<h1>Анас лучшее за неделю</h1>
+<div>
+  <% @posts.each do |post| %>
+    <h2> <%= post.title %> </h2>
+    <%= image_tag post.avatar.url(:medium) %>
+    <p><%= post.sinopsis %></p>
+    <%= link_to 'read this post', post_url(post.id) %>
+  <% end %>
+</div>
