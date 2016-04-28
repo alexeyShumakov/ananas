@@ -9,7 +9,7 @@
     <% if user_signed_in? && policy(comment).destroy? %>
       <%= link_to 'delete', comment_path(comment.id), method: :delete, data: { confirm: 'delete this comment?' }, class: 'pull-right' %>
     <% end %>
-    <h4 class="media-heading"><%= comment.user.email %></h4>
+    <h4 class="media-heading"><%= comment.user.username %></h4>
     <%= comment.body %>
   </div>
 </div>

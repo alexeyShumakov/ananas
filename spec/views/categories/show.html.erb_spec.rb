@@ -20,6 +20,6 @@ RSpec.describe "categories/show", type: :view do
 
   it 'display user information' do
     render
-    expect(rendered).to match(post_model.user.email)
+    expect(rendered).to match(post_model.user.username)
   end
 end

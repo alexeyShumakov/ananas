@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_attached_file :avatar, styles: { small: "65x65>" }, default_url: "/images/user/:style/missing.png"
+  has_attached_file :avatar, styles: { small: "50x50>" }, default_url: "/images/user/:style/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   has_many :posts
   has_many :comments, dependent: :destroy
@@ -15,13 +15,9 @@ class User < ActiveRecord::Base
     model.user == self
   end
 
-  def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_initialize do |user|
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0,20]
-      user.username = auth.info.name
-      user.skip_confirmation!
-      user.save
-    end
+  protected
+
+  def email_required?
+    provider.blank?
   end
 end

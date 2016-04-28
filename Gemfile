@@ -17,6 +17,7 @@ gem 'kramdown'
 gem 'pundit'
 gem 'administrate', '~> 0.1.5'
 gem 'whenever', :require => false
+gem 'rest-client'
 gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'
 gem "omniauth-google-oauth2"
@@ -37,6 +38,7 @@ end
 
 group :test do
   gem 'database_cleaner'
+  gem 'webmock'
 end
 
 group :development do
