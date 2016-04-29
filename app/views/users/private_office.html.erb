@@ -1,9 +1,22 @@
-<ul>
-  <%= current_user.username %>
-  <% if policy(Post).create? %>
-    <li><%= link_to 'create new post', new_post_path %> </li>
-  <% end %>
-  <% if policy(Category).create? %>
-    <li><%= link_to 'create new category', new_category_path %> </li>
-  <% end %>
-</ul>
+<div class="row">
+  <div class="col-md-offset-3 col-md-9">
+    <h1 class='text-center'>Личный кабинет</h1>
+    <%= image_tag current_user.avatar(:small) %>
+    <h3> <%= current_user.username %> </h3>
+    <ul class='list-unstyled'>
+      <% if policy(Post).create? %>
+        <li><%= link_to 'create new post', new_post_path %> </li>
+      <% end %>
+      <% if policy(Category).create? %>
+        <li><%= link_to 'create new category', new_category_path %> </li>
+      <% end %>
+    </ul>
+
+    <dl class='dl-horizontal'>
+      <dt>email</dt>
+      <dd><%= current_user.email %></dd>
+      <dt>Имя</dt>
+      <dd><%= current_user.username %></dd>
+    </dl>
+  </div>
+</div>
