@@ -22,6 +22,8 @@ gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'
 gem "omniauth-google-oauth2"
 gem 'dotenv-rails'
+gem 'react-rails', '~> 1.6.0'
+gem 'active_model_serializers'
 
 group :development, :test do
   gem 'bullet'

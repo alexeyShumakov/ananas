@@ -38,7 +38,7 @@ RSpec.describe CommentsController, type: :controller do
 
     context "with valid params" do
       it "updates the requested comment" do
-        put :update, {id: comment.id, comment: new_attrs}
+        put :update, {id: comment.id, body: new_attrs[:body]}
         comment.reload
         expect(comment.body).to eq(new_attrs[:body])
       end
@@ -46,11 +46,6 @@ RSpec.describe CommentsController, type: :controller do
       it "assigns the requested comment as @comment" do
         put :update, {id: comment.id, comment: valid_attrs}
         expect(assigns(:comment)).to eq(comment)
-      end
-
-      it "redirects to the comment" do
-        put :update, {id: comment.id, comment: valid_attrs}
-        expect(response).to redirect_to(comment)
       end
     end
 
@@ -69,11 +64,6 @@ RSpec.describe CommentsController, type: :controller do
       expect {
         delete :destroy, {id: comment.id}
       }.to change(Comment, :count).by(-1)
-    end
-
-    it "redirects to the comments list" do
-      delete :destroy, {id: comment.id}
-      expect(response).to redirect_to(post_path(comment.post.id))
     end
   end
 

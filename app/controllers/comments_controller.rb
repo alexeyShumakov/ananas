@@ -1,8 +1,13 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
 
   after_action :verify_authorized, only: [:update, :destroy]
+
+  def index
+    @comments = Comment.where(post_id: params[:post_id])
+    render json: @comments
+  end
 
   def create
     @comment = Comment.new(comment_params)
@@ -22,26 +27,17 @@ class CommentsController < ApplicationController
 
   def update
     authorize @comment
-    @post = @comment.post
-    respond_to do |format|
-      if @comment.update(comment_params)
-        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @comment }
-      else
-        format.html { render 'posts/show', alert: 'Comment was not created.' }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
-      end
+    if @comment.update({body: params[:body]})
+      render json: @comment, status: :ok
+    else
+      render json: @comment.errors, status: :unprocessable_entity
     end
   end
 
   def destroy
     authorize @comment
-    @post = @comment.post
     @comment.destroy
-    respond_to do |format|
-      format.html { redirect_to @post , notice: 'Comment was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    render json: { status: :deleted }, status: :ok
   end
 
   private

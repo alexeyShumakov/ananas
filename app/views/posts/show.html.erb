@@ -24,12 +24,8 @@
     </div>
 
     <h2>Комментарии</h2>
-    <hr>
     <%= render partial: 'comments/form', locals: { post: @post, comment: @comment } %>
+    <%= react_component 'CommentBox', url: comments_url(post_id: @post.id) %>
     <hr>
-
-    <% @post.comments.each do |comment| %>
-      <%= render partial: 'comments/comment', locals: { comment: comment } %>
-    <% end %>
   </div>
 </div>
