@@ -18,6 +18,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def auth_user(provider)
     @user = Utils::OmniauthUtil.find_or_create_user(request.env["omniauth.auth"])
+    @user.remember_me = true
 
     if @user.persisted?
       sign_in_and_redirect @user, :event => :authentication
