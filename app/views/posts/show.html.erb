@@ -24,8 +24,7 @@
     </div>
 
     <h2>Комментарии</h2>
-    <%= render partial: 'comments/form', locals: { post: @post, comment: @comment } %>
-    <%= react_component 'CommentBox', url: comments_url(post_id: @post.id) %>
+    <%= react_component 'CommentBox', url: comments_url(post_id: @post.id), post_id: @post.id, isSignedIn: user_signed_in? %>
     <hr>
   </div>
 </div>

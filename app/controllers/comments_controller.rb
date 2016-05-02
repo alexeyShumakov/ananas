@@ -12,16 +12,11 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.user = current_user
-    @post = @comment.post
 
-    respond_to do |format|
-      if @comment.save
-        format.html { redirect_to @comment.post, notice: 'Comment was successfully created.' }
-        format.json { render :show, status: :created, location: @comment }
-      else
-        format.html { render 'posts/show', alert: 'Comment was not created.' }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
-      end
+    if @comment.save
+      render json: @comment, status: :created
+    else
+      render json: @comment.errors, status: :unprocessable_entity
     end
   end
 

@@ -55,6 +55,26 @@ class CommentBox extends React.Component {
     )
   }
 
+  createComment(text) {
+    let _this = this;
+    let comments = this.state.comments;
+    return $.ajax({
+      url: '/comments',
+      type:'post',
+      data: { comment: {body: text, post_id: _this.props.post_id } }
+    }).then(
+      (data) => {
+        _this.setState((prevState) => {
+          let newState = prevState;
+          newState.comments.push(data.comment);
+          return newState;
+        });
+      }, (err) => {
+       return err;
+      }
+    )
+  }
+
   constructor(props) {
     super(props);
     this.state = { comments: [] };
@@ -63,9 +83,11 @@ class CommentBox extends React.Component {
   render () {
     let destroyComment = this.destroyComment.bind(this);
     let updateComment = this.updateComment.bind(this);
+    let createComment = this.createComment.bind(this);
     return (
       <div>
-        <CommentForm />
+        <CommentForm isSignedIn={this.props.isSignedIn} createComment={createComment} />
+        <hr/>
         <CommentList data={this.state.comments}
           destroyComment={destroyComment}
           updateComment={updateComment}
