@@ -1,9 +1,14 @@
 categories      = %w(кухня науки мода мобильное здоровье бизнес путешествия)
 
-admin           = User.create(username: 'admin', email: 'admin@mail.com',           password: 'password', password_confirmation: 'password', confirmed_at: Date.today, role: 1, is_admin: true)
-user            = User.create(username: 'user',  email: 'user@mail.com',            password: 'password', password_confirmation: 'password', confirmed_at: Date.today, role: 0)
-major_moderator = User.create(username: 'major', email: 'major_moderator@mail.com', password: 'password', password_confirmation: 'password', confirmed_at: Date.today, role: 1)
-minor_moderator = User.create(username: 'minor', email: 'minor_moderator@mail.com', password: 'password', password_confirmation: 'password', confirmed_at: Date.today, role: 2)
+admin           = User.create(weekly_mailing: true, username: 'admin', email: 'admin@mail.com',
+                              password: 'password', password_confirmation: 'password', confirmed_at: Date.today,
+                              role: 1, is_admin: true) 
+user            = User.create(weekly_mailing: true, username: 'user',  email: 'user@mail.com',
+                              password: 'password', password_confirmation: 'password', confirmed_at: Date.today, role: 0)
+major_moderator = User.create(weekly_mailing: true, username: 'major', email: 'major_moderator@mail.com',
+                              password: 'password', password_confirmation: 'password', confirmed_at: Date.today, role: 1)
+minor_moderator = User.create(weekly_mailing: true, username: 'minor', email: 'minor_moderator@mail.com',
+                              password: 'password', password_confirmation: 'password', confirmed_at: Date.today, role: 2)
 
 categories.each do |category|
   cat = Category.create(title: category)

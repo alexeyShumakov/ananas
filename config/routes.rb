@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   get 'categories/newest', to: 'categories#newest'
   resources :categories, except: [:index]
   resources :posts, except: [:index]
+  resources :likes, only: [:create]
   resources :comments
 end

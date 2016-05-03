@@ -8,7 +8,6 @@ class CommentBox extends React.Component {
         _this.setState(comments);
       },
       (error) => {
-        console.log(error);
       }
     )
   }
@@ -75,6 +74,31 @@ class CommentBox extends React.Component {
     )
   }
 
+  updateLike(commentId) {
+    let _this = this;
+    let comments = this.state.comments;
+    $.ajax({
+      url: '/likes',
+      type: 'post',
+      data: {like: {comment_id: commentId}},
+    }).then(
+      (data) => {
+        comments.find((element, index, array) => {
+          if (element.url === data.comment.url) { 
+            element.likesCount = data.comment.likesCount;
+            element.hasLiked = data.comment.hasLiked;
+          }
+        });
+        _this.setState((prevState) => {
+          let newState = prevState;
+          newState.comments = comments;
+          return newState;
+        });
+      }, (err) => {
+       return err;
+      }
+    )
+  }
   constructor(props) {
     super(props);
     this.state = { comments: [] };
@@ -84,6 +108,7 @@ class CommentBox extends React.Component {
     let destroyComment = this.destroyComment.bind(this);
     let updateComment = this.updateComment.bind(this);
     let createComment = this.createComment.bind(this);
+    let updateLike = this.updateLike.bind(this);
     return (
       <div>
         <CommentForm isSignedIn={this.props.isSignedIn} createComment={createComment} />
@@ -91,6 +116,7 @@ class CommentBox extends React.Component {
         <CommentList data={this.state.comments}
           destroyComment={destroyComment}
           updateComment={updateComment}
+          updateLike={updateLike}
         />
       </div>
     );

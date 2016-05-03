@@ -1,5 +1,5 @@
 class CommentSerializer < ApplicationSerializer
-  attributes :id, :body, :author, :avatar, :can_edit, :url
+  attributes :id, :body, :author, :avatar, :can_edit, :url, :has_liked, :likes_count
 
   private
 
@@ -12,6 +12,18 @@ class CommentSerializer < ApplicationSerializer
 
   def author
     object.user.username
+  end
+
+  def has_liked
+    if scope
+      object.has_liked?(scope)
+    else
+      false
+    end
+  end
+
+  def likes_count
+    object.likes.count
   end
 
   def can_edit

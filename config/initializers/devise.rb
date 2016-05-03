@@ -245,8 +245,8 @@ Devise.setup do |config|
 
 
   config.omniauth :facebook, ENV['FB_APP_ID'], ENV['FB_APP_SECRET'] 
-  config.omniauth :vkontakte, ENV['VK_APP_ID'], ENV['VK_APP_SECRET'], scope: 'email'
-  config.omniauth :google_oauth2, ENV['G_APP_ID'], ENV['G_APP_SECRET'] 
+  config.omniauth :vkontakte, ENV['VK_APP_ID'], ENV['VK_APP_SECRET']
+  config.omniauth :google_oauth2, ENV['G_APP_ID'], ENV['G_APP_SECRET'], skip_jwt: true
 
 
 

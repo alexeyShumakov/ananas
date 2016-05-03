@@ -3,8 +3,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
     create_table(:users) do |t|
 
       t.integer :role, default: 0
-      t.boolean :is_admin, default: false
-      t.boolean :weekly_mailing, default: false
+      t.boolean :is_admin, default: false, null: false
+      t.boolean :weekly_mailing, default: false, null: false
       t.string :username
 
       ## Database authenticatable

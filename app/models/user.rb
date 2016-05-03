@@ -3,14 +3,15 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   has_many :posts
   has_many :comments, dependent: :destroy
+  has_many :likes
 
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, omniauth_providers: [:facebook, :vkontakte, :google_oauth2]
 
   enum role: [:user, :major_moderator, :minor_moderator]
-  validates :username, :weekly_mailing, presence: true
-
+  validates :username, presence: true
+  validates :weekly_mailing, inclusion: [true, false]
   def owner_of?(model)
     model.user == self
   end

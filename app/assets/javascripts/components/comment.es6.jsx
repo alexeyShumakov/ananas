@@ -41,7 +41,12 @@ class Comment extends React.Component {
     });
   }
 
+  updateLike() {
+    let commentId = this.props.id;
+    this.props.updateLike(commentId);
+  }
   render () {
+    let hasLiked = this.props.hasLiked;
     let editButtons;
     let mainComment;
     let error;
@@ -81,7 +86,13 @@ class Comment extends React.Component {
           </a>
         </div>
         <div className="media-body">
-          <h4 className="media-heading"> {this.props.author}{editButtons}</h4>
+          <h4 className="media-heading">
+            {this.props.author}
+            <button className={`pull-right btn btn-sm btn-${hasLiked ? 'primary' : 'default'}`} onClick={this.updateLike.bind(this)}>
+              <span className="glyphicon glyphicon-thumbs-up"></span> {this.props.likesCount}
+            </button>
+            {editButtons}
+          </h4>
           {mainComment}
         </div>
       </div>
