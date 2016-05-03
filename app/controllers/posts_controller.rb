@@ -46,6 +46,11 @@ class PostsController < ApplicationController
     redirect_to root_path, notice: 'Post was deleted.'
   end
 
+  def md_preview
+    @text = { text: Kramdown::Document.new(params[:text]).to_html }
+    render json: @text.to_json, status: :ok
+  end
+
   private
 
   def set_post
