@@ -333,6 +333,7 @@ DEPENDENCIES
   fuubar
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   kramdown
   omniauth-facebook
   omniauth-google-oauth2

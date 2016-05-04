@@ -12,6 +12,8 @@ class Post < ActiveRecord::Base
   validates :category, presence: true
   validates :avatar, attachment_presence: true
 
+  paginates_per 10
+
   def self.best_weekly
     where('created_at > ?', 1.week.ago).order(impressions: :desc).limit(10)
   end

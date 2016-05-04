@@ -5,11 +5,11 @@ class CategoriesController < ApplicationController
   after_action :verify_authorized, only: [:new, :create, :edit, :update, :destroy]
 
   def newest
-    @posts = Post.includes(:user, :category).order(created_at: :desc).first(10)
+    @posts = Post.includes(:user, :category).order(created_at: :desc).page(params[:page])
   end
 
   def show
-    @posts = @category.posts.order(created_at: :desc)
+    @posts = @category.posts.order(created_at: :desc).page(params[:page])
   end
   
   def new

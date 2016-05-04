@@ -12,7 +12,7 @@ minor_moderator = User.create(weekly_mailing: true, username: 'minor', email: 'm
 
 categories.each do |category|
   cat = Category.create(title: category)
-  3.times do
+  15.times do
     post_params = {
       user: major_moderator,
       title: Faker::Hipster.sentence,
