@@ -10,18 +10,20 @@
   </div>
 
   <div class="col-md-9">
-    <%= react_component 'PostFavorites', @json_post %>
-    <h2><%= @post.title %></h2>
+    <div class="post__main">
+      <%= react_component 'PostFavorites', @json_post %>
+      <h2><%= @post.title %></h2>
 
-    <% if user_signed_in? && policy(@post).update? %>
-      <%= render partial: 'posts/crud_links', locals: { post: @post } %>
-    <% end %>
+      <% if user_signed_in? && policy(@post).update? %>
+        <%= render partial: 'posts/crud_links', locals: { post: @post } %>
+      <% end %>
 
-    <p><i><%= to_markdown @post.sinopsis %></i></p>
-    <hr>
-    <%= image_tag @post.avatar.url(:medium) %>
-    <div>
-      <%= to_markdown @post.body %>
+      <p><i><%= to_markdown @post.sinopsis %></i></p>
+      <hr>
+      <%= image_tag @post.avatar.url(:medium) %>
+      <div>
+        <%= to_markdown @post.body %>
+      </div>
     </div>
 
     <h2>Комментарии</h2>

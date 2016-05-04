@@ -80,11 +80,13 @@ class Comment extends React.Component {
     }
     return (
       <div className='media'>
+
         <div className="media-left">
           <a href="#">
             <img src={this.props.avatar} alt=""/>
           </a>
         </div>
+
         <div className="media-body">
           <h4 className="media-heading">
             {this.props.author}
@@ -95,6 +97,7 @@ class Comment extends React.Component {
           </h4>
           {mainComment}
         </div>
+
       </div>
     );
   }
