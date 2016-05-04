@@ -20,9 +20,9 @@ class PostPreview extends React.Component {
   render () {
     return(
       <div>
+        <button className='pull-right btn btn-primary' onClick={this.updateMd.bind(this)}>Показать/обновить</button>
         <h2>Предпросмотр(только 'body')</h2>
         <hr/>
-        <button className='pull-right btn btn-primary' onClick={this.updateMd.bind(this)}>Показать/обновить</button>
         <div dangerouslySetInnerHTML={this.rawMd()}></div>
       </div>
     );
