@@ -5,7 +5,7 @@ RSpec.describe "categories/show", type: :view do
   let(:post_model) { create(:post, category: category) }
   before(:each) do
     assign(:category, category)
-    assign(:posts, [post_model])
+    assign(:posts, Kaminari.paginate_array([post_model]).page(1))
   end
   it 'display category"s title' do
     render
