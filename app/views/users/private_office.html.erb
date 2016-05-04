@@ -18,5 +18,16 @@
       <dt>Имя</dt>
       <dd><%= current_user.username %></dd>
     </dl>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">Любимые посты</div>
+        <div class="panel-body">
+          <% current_user.favorites.each do |favorite| %>
+            <ul class="list-unstyled">
+              <li><%= link_to favorite.post.title, post_path(favorite.post)%></li>
+            </ul>
+          <% end %>
+        </div>
+    </div>
   </div>
 </div>

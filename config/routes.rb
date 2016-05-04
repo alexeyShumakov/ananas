@@ -21,5 +21,6 @@ Rails.application.routes.draw do
     get 'md_preview', on: :collection
   end
   resources :likes, only: [:create]
+  resources :favorites, only: [:create]
   resources :comments
 end

@@ -4,6 +4,7 @@ class Post < ActiveRecord::Base
   belongs_to :category, counter_cache: true
   belongs_to :user
   has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   validates :sinopsis, :body, :title, presence: true
   validates :user, presence: true
@@ -13,5 +14,13 @@ class Post < ActiveRecord::Base
 
   def self.best_weekly
     where('created_at > ?', 1.week.ago).order(impressions: :desc).limit(10)
+  end
+
+  def has_favorite?(user)
+    if favorites.find_by(user: user)
+      true
+    else
+      false
+    end
   end
 end

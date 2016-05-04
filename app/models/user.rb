@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   has_many :posts
   has_many :comments, dependent: :destroy
-  has_many :likes
+  has_many :favorites, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable

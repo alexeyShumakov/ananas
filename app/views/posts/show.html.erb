@@ -10,6 +10,7 @@
   </div>
 
   <div class="col-md-9">
+    <%= react_component 'PostFavorites', @json_post %>
     <h2><%= @post.title %></h2>
 
     <% if user_signed_in? && policy(@post).update? %>

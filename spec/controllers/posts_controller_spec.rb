@@ -22,11 +22,6 @@ RSpec.describe PostsController, type: :controller do
       expect(assigns(:post)).to eq(post_model)
       expect(post_model.impressions).to eq(impr + 1)
     end
-
-    it 'create new comment' do
-      get :show, id: post_model.id
-      expect(assigns(:comment)).to be_a(Comment)
-    end
   end
 
   describe "GET #edit" do

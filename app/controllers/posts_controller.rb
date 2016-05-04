@@ -6,9 +6,9 @@ class PostsController < ApplicationController
   after_action :verify_authorized, only: [:new, :create, :edit, :update, :destroy]
 
   def show
-    @comment = Comment.new
     @post.impressions += 1
     @post.save
+    @json_post = PostSerializer.new(@post, {scope: current_user}).as_json
   end
 
   def new

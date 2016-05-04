@@ -2,6 +2,7 @@ class CreatePosts < ActiveRecord::Migration
   def change
     create_table :posts do |t|
       t.integer :comments_count, default: 0
+      t.integer :favorites_count, default: 0
       t.text :sinopsis
       t.text :body
       t.string :title

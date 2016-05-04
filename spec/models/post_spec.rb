@@ -14,4 +14,15 @@ RSpec.describe Post, type: :model do
     15.times { create :post }
     expect(Post.best_weekly.length).to eq(10)
   end
+
+  describe '#has_favirite?' do
+    let (:user) {create :user}
+    it 'true if post favorite' do
+      create :favorite, user: user, post: post_1
+      expect(post_1.has_favorite?(user)).to eq(true)
+    end
+    it 'false if post not favorite' do
+      expect(post_1.has_favorite?(user)).to eq(false)
+    end
+  end
 end
