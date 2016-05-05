@@ -18,12 +18,10 @@
     <%= link_to post do %>
       <%= image_tag post.avatar.url(:medium) %>
     <% end %>
-    <p>
-      <%= to_markdown post.sinopsis %>
-    </p>
-    <% if user_signed_in? && policy(post).update? %>
-      <%= render partial: 'posts/crud_links', locals: { post: post } %>
-    <% end %>
+    <p> <%= to_markdown post.sinopsis %> </p>
+
+    <%= render partial: 'posts/crud_links', locals: { post: post } %>
+
     <%= link_to 'read this post ->', post_path(post.id), class: 'pull-right' %>
     <div class="clearfix"></div>
     <hr>

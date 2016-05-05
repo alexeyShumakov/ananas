@@ -14,9 +14,7 @@
       <%= react_component 'PostFavorites', @json_post %>
       <h2><%= @post.title %></h2>
 
-      <% if user_signed_in? && policy(@post).update? %>
-        <%= render partial: 'posts/crud_links', locals: { post: @post } %>
-      <% end %>
+      <%= render partial: 'posts/crud_links', locals: { post: @post } %>
 
       <p><i><%= to_markdown @post.sinopsis %></i></p>
       <hr>
