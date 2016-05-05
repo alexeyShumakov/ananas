@@ -1,5 +1,9 @@
 class PostSerializer < ApplicationSerializer
-  attributes :id, :favorites_count, :has_favorite, :title
+  attributes :id, :favorites_count, :has_favorite, :title, :url
+
+  def url
+    post_path(object)
+  end
 
   def favortes_count
     object.favorites.count

@@ -5,6 +5,11 @@ class PostsController < ApplicationController
 
   after_action :verify_authorized, only: [:new, :create, :edit, :update, :destroy]
 
+  def search
+    @posts = Post.search_by_title(params[:keyword]).limit(10)
+    render json: @posts
+  end
+
   def show
     @post.impressions += 1
     @post.save

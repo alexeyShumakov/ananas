@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+  include PgSearch
+  pg_search_scope :search_by_title, against: :title, using: {tsearch: {prefix: true}}
   has_attached_file :avatar, styles: { medium: "850x425>" }, default_url: "/images/post/:style/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   belongs_to :category, counter_cache: true

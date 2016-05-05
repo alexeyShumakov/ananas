@@ -9,6 +9,13 @@ RSpec.describe PostsController, type: :controller do
     sign_in user
   end
 
+  describe "GET #search" do
+    it 'assigns post' do
+      get :search, keyword: post_model.title
+      expect(assigns(:posts)).to eq([post_model])
+    end
+  end
+
   describe "GET #show" do
     it "returns http success" do
       get :show, id: post_model.id
