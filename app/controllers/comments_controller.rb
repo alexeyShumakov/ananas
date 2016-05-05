@@ -1,12 +1,12 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:edit, :update, :destroy]
+  before_action :set_comment, only: [:update, :destroy]
+  before_action :authenticate_user!, only: [:create, :update, :destroy]
 
   after_action :verify_authorized, only: [:update, :destroy]
 
   def index
     @comments = Comment.where(post_id: params[:post_id])
-    render json: @comments
+    render json: @comments, status: :ok
   end
 
   def create

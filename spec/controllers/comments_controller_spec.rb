@@ -10,6 +10,20 @@ RSpec.describe CommentsController, type: :controller do
     sign_in user
   end
 
+  describe "GET #index" do
+    before(:each) do
+      sign_out user
+    end
+    it 'assigns comments' do
+      comment = create :comment, post: post_model
+      get :index, post_id: post_model.id
+      expect(assigns(:comments)).to eq([comment])
+    end
+    it 'ok status' do
+      get :index, post_id: post_model.id
+      expect(response).to have_http_status(:ok)
+    end
+  end
   describe "POST #create" do
     context "with valid params" do
       it "creates a new Comment" do
@@ -27,6 +41,21 @@ RSpec.describe CommentsController, type: :controller do
       it "assigns a newly created but unsaved comment as @comment" do
         post :create, {comment: invalid_attrs}
         expect(assigns(:comment)).to be_a_new(Comment)
+      end
+    end
+
+    context 'user must sign in for creating comment' do
+      before(:each) do
+        sign_out user
+      end
+
+      it 'cant create commnet' do
+        expect { post :create, comment: valid_attrs }.to change(Comment, :count).by(0)
+      end
+
+      it 'redirect_to new_user_session_path' do
+        post :create, comment: valid_attrs
+        expect(response).to redirect_to(new_user_session_path) 
       end
     end
   end

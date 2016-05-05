@@ -6,10 +6,6 @@ class PostSerializer < ApplicationSerializer
   end
 
   def has_favorite
-    if scope
-      object.has_favorite?(scope)
-    else
-      false
-    end
+    object.has_favorite?(scope)
   end
 end

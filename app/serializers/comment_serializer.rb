@@ -15,11 +15,7 @@ class CommentSerializer < ApplicationSerializer
   end
 
   def has_liked
-    if scope
-      object.has_liked?(scope)
-    else
-      false
-    end
+    object.has_liked?(scope)
   end
 
   def likes_count
@@ -27,10 +23,6 @@ class CommentSerializer < ApplicationSerializer
   end
 
   def can_edit
-    if scope
-      CommentPolicy.new(scope, object).update?
-    else
-      false
-    end
+    CommentPolicy.new(scope, object).update?
   end
 end
