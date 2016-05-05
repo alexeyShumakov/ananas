@@ -33,7 +33,11 @@ class PostSearch extends React.Component {
       posts =
           posts.map(post => {
             return(
-              <li key={post.id}><a href={post.url} >{post.title}</a></li>
+              <li key={post.id}>
+                <a href={post.url} >
+                  {post.impressions} <span className="glyphicon glyphicon-eye-open"></span> {post.title}
+                </a>
+              </li>
             );
           });
       posts = 
