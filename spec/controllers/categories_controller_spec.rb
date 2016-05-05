@@ -27,6 +27,11 @@ RSpec.describe CategoriesController, type: :controller do
   end
 
   describe 'GET #new' do
+    it 'redirect_to root_path' do
+      sign_in create(:user)
+      get :new
+      expect(response).to redirect_to(root_path)
+    end
     it 'assigns new category model' do
       get :new
       expect(assigns(:category)).to be_a(Category)
