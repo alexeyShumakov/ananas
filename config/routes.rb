@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   end
 
   get 'private_office', to: 'users#private_office'
+  get 'users/search', to: 'users#search'
+  resources :users, only: [:update]
 
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
