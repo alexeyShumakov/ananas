@@ -10,7 +10,7 @@ class UserSingle extends React.Component {
     return(
       <li>
         <a href="#" onClick={this.setUser.bind(this)} >
-          {user.id}={user.email}={user.username}={user.role}
+          <b>id:</b> {user.id} <b>email:</b> {user.email ? user.email : '~~~~'} <b>username:</b> {user.username} <b>role:</b> {user.role}
         </a>
       </li>
     );
