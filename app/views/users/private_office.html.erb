@@ -3,24 +3,8 @@
     <h1 class='text-center'>Личный кабинет</h1>
     <%= image_tag current_user.avatar(:small) %>
     <h3> <%= current_user.username %> </h3>
-    <% if policy(User).moderator_panel? %>
-      <div class="panel panel-default">
-        <div class="panel-heading">Панель модератора</div>
-        <div class="panel-body">
-          <ul class='list-unstyled'>
-            <% if policy(Post).create? %>
-              <li><%= link_to 'create new post', new_post_path %> </li>
-            <% end %>
-            <% if policy(Category).create? %>
-              <li><%= link_to 'create new category', new_category_path %> </li>
-            <% end %>
-          </ul>
-          <% if policy(User).update? %>
-            <%= react_component 'UserSearch' %>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
+
+    <%= render partial: "users/panels/#{current_user.role}_panel" %>
 
     <dl class='dl-horizontal'>
       <dt>email</dt>
@@ -28,14 +12,17 @@
       <dt>Имя</dt>
       <dd><%= current_user.username %></dd>
     </dl>
-
     <div class="panel panel-default">
       <div class="panel-heading">Любимые посты</div>
         <div class="panel-body">
-          <% current_user.favorites.each do |favorite| %>
+          <% unless current_user.favorites.blank? %>
             <ul class="list-unstyled">
-              <li><%= link_to favorite.post.title, post_path(favorite.post)%></li>
+              <% current_user.favorites.each do |favorite| %>
+                <li><%= link_to favorite.post.title, post_path(favorite.post)%></li>
+              <% end %>
             </ul>
+            <% else %>
+              <h4>Скорее добавьте любимых постов!</h4>
           <% end %>
         </div>
     </div>
