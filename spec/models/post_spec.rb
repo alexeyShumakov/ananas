@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  let(:post_1) { create :post, impressions: 100 }
-  let(:post_2) { create :post, impressions: 200 }
-  let(:post_3) { create :post, impressions: 300 }
+  let(:category) { create :category }
+  let!(:post_1) { create :post, impressions: 100, category: category }
+  let!(:post_2) { create :post, impressions: 200, category: category }
+  let!(:post_3) { create :post, impressions: 300, category: category }
 
   it '#best_weekly' do
     post_4 = create :post, impressions: 10, created_at: 8.days.ago
@@ -23,6 +24,12 @@ RSpec.describe Post, type: :model do
     end
     it 'false if post not favorite' do
       expect(post_1.has_favorite?(user)).to eq(false)
+    end
+  end
+
+  describe '#similar' do
+    it 'test' do
+      expect(post_1.similar.length).to eq(2)
     end
   end
 end

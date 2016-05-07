@@ -24,6 +24,21 @@
       </div>
     </div>
 
+    <h3>Смотрите так же</h3>
+    <hr/>
+    
+    <div class='posts-similar'>
+      <% @post.similar.each do |post| %>
+        <%= link_to post_path(post) do %>
+          <div class='col-md-6'>
+            <%= image_tag @post.avatar.url(:medium), class: 'img-rounded' %>
+            <%= link_to post.title, post_path(post) %>
+            <p></p>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
     <h2>Комментарии</h2>
     <%= react_component 'CommentBox', url: comments_url(post_id: @post.id), post_id: @post.id, isSignedIn: user_signed_in? %>
     <hr>

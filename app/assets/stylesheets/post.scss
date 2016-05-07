@@ -13,3 +13,11 @@
     max-width: 100%;
   }
 }
+
+.posts-similar {
+  img {
+    max-width: 100%;
+  }
+  display: flex;
+  flex-wrap: wrap;
+}

@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
     against: :title,
     using: {tsearch: {prefix: true}},
     ranked_by: 'impressions'
-  has_attached_file :avatar, styles: { medium: "850x425>" }, default_url: "/images/post/:style/missing.png"
+  has_attached_file :avatar, styles: { medium: "850x425#" }, default_url: "/images/post/:style/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   belongs_to :category, counter_cache: true
   belongs_to :user
@@ -21,6 +21,10 @@ class Post < ActiveRecord::Base
 
   def self.best_weekly
     where('created_at > ?', 1.week.ago).order(impressions: :desc).limit(10)
+  end
+
+  def similar
+    category.posts.where('created_at > ?', 4.weeks.ago).where('id != ?', self.id).shuffle[0..5]
   end
 
   def has_favorite?(user)
