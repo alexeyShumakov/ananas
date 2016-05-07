@@ -26,6 +26,20 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
+  describe "PATCH #profile" do
+    it 'update with valid params' do
+      patch :profile, user: { username: 'new nickname'}
+      user.reload
+      expect(user.username).to eq('new nickname')
+    end
+    it 'not update if params are not valid' do
+      patch :profile, user: { username: ''}
+      user.reload
+      expect(user.username).not_to eq('')
+      expect(response).to have_http_status(:unprocessable_entity)
+    end
+  end
+
   describe "PUT #update" do
     it 'cant update if user != major_moderator' do
       sign_in create(:user)

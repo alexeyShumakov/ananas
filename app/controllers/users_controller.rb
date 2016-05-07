@@ -20,13 +20,25 @@ class UsersController < ApplicationController
     end
   end
 
+  def profile
+    if current_user.update(self_user_params)
+      render json: current_user, status: :ok
+    else
+      render json: current_user.errors, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def set_user
     @user = User.find(params[:id])
   end
 
+  def self_user_params
+    params.require(:user).permit(:email, :username, :avatar)
+  end
+
   def user_params
-    params.require(:user).permit(:email, :username, :role)
+    params.require(:user).permit(:email, :username, :role, :avatar)
   end
 end
