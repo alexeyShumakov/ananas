@@ -4,4 +4,8 @@ class History < ActiveRecord::Base
   validates :history, presence: true, length: { maximum: 100000 }
 
   paginates_per 10
+
+  def as_json
+    HistorySerializer.new(self).as_json
+  end
 end

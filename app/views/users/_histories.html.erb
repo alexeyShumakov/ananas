@@ -1,7 +1,7 @@
 <h4>Последние истории</h4>
 <ul class="list-unstyled">
   <% @histories.each do |history| %>
-    <li><%= link_to "#{history.name}, #{history.email}", history_path(history.id) %></li>
+    <%= react_component 'History', history.as_json %>
   <% end %>
 </ul>
 <hr>

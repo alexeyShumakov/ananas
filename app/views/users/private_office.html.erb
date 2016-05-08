@@ -1,17 +1,17 @@
 <div class="row">
-  <div class="col-md-offset-3 col-md-9">
+  <div class="col-md-12">
     <h1 class='text-center'>Личный кабинет</h1>
     <%= react_component 'UserAvatarWidget', avatarUrl: current_user.avatar(:medium) %>
     <h3> <%= current_user.username %> </h3>
-
-    <%= render partial: "users/panels/#{current_user.role}_panel" %>
-
     <dl class='dl-horizontal'>
       <dt>email</dt>
       <dd><%= current_user.email %></dd>
       <dt>Имя</dt>
       <dd><%= current_user.username %></dd>
     </dl>
+
+    <%= render partial: "users/panels/#{current_user.role}_panel" %>
+
     <div class="panel panel-default">
       <div class="panel-heading">Любимые посты</div>
         <div class="panel-body">
