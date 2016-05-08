@@ -1,4 +1,5 @@
 categories      = %w(кухня науки мода мобильное здоровье бизнес путешествия)
+50.times { History.create(email: 'email@email.com', name: 'name', history:  Faker::Hipster.paragraph(15)) }
 
 admin           = User.create(weekly_mailing: true, username: 'admin', email: 'admin@mail.com',
                               password: 'password', password_confirmation: 'password', confirmed_at: Date.today,

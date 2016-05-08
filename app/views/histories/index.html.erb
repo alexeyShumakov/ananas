@@ -1,0 +1,8 @@
+<h1>Истории</h1>
+<div class="row">
+  <%= paginate @histories %>
+  <% @histories.each do |history| %>
+    <%= render partial: 'history', locals: { history: history } %>
+  <% end %>
+  <%= paginate @histories %>
+</div>

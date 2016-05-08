@@ -1,0 +1,17 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <b>name:</b> <%= history.name %>
+    <b>email:</b> <%= history.email %>
+  </div>
+  <div class="panel-body">
+    <%= to_markdown history.history %>
+    <hr>
+    <hr>
+    <h3>Разметка</h3>
+    <%= history.history %>
+  </div>
+  <div class='panel-footer'>
+    <%= link_to 'Изменить историю', edit_history_path(history.id) %> |
+    <%= link_to 'Показать историю', history_path(history.id) %>
+  </div>
+</div>

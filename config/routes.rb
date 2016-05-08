@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :histories
   namespace :support do
     get :about
     get :partner
