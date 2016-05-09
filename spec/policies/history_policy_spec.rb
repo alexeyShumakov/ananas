@@ -5,50 +5,20 @@ describe HistoryPolicy do
   let(:major_moderator) { create :major_moderator }
   let(:minor_moderator) { create :minor_moderator }
   let(:user)            { create :user }
-  let(:history)         { create :history }
+  let(:history)         { create :history, user: user }
 
   subject { described_class }
-
-
-  permissions :show? do
-    it 'grants access major_moderator' do
-      expect(subject).to permit(major_moderator)
-    end
-
-    it 'grants access minor_moderator' do
-      expect(subject).to permit(minor_moderator)
-    end
-
-    it 'denies access user' do
-      expect(subject).not_to permit(user)
-    end
-  end
-
-  permissions :index? do
-    it 'grants access major_moderator' do
-      expect(subject).to permit(major_moderator)
-    end
-
-    it 'grants access minor_moderator' do
-      expect(subject).to permit(minor_moderator)
-    end
-
-    it 'denies access user' do
-      expect(subject).not_to permit(user)
-    end
-  end
-
 
   permissions :update? do
     it 'grants access major_moderator' do
       expect(subject).to permit(major_moderator)
     end
 
-    it 'denies access minor_moderator' do
-      expect(subject).not_to permit(minor_moderator)
+    it 'grants access minor_moderator' do
+      expect(subject).to permit(minor_moderator)
     end
 
-    it 'denies access user' do
+    it 'denied access to user' do
       expect(subject).not_to permit(user)
     end
   end
@@ -58,12 +28,8 @@ describe HistoryPolicy do
       expect(subject).to permit(major_moderator)
     end
 
-    it 'denies access minor_moderator' do
-      expect(subject).not_to permit(minor_moderator)
-    end
-
-    it 'denies access user' do
-      expect(subject).not_to permit(user)
+    it 'grants access minor_moderator' do
+      expect(subject).to permit(minor_moderator)
     end
   end
 
@@ -72,11 +38,11 @@ describe HistoryPolicy do
       expect(subject).to permit(major_moderator)
     end
 
-    it 'denies access minor_moderator' do
-      expect(subject).not_to permit(minor_moderator)
+    it 'grants access minor_moderator' do
+      expect(subject).to permit(minor_moderator)
     end
 
-    it 'denies access user' do
+    it 'denied access to user' do
       expect(subject).not_to permit(user)
     end
   end

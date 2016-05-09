@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
   after_action :verify_authorized, only: [:update, :destroy]
 
   def index
-    @comments = Comment.where(post_id: params[:post_id])
+    @comments = Comment.where(commentable_id: params[:commentable_id], commentable_type: params[:commentable_type]).order(created_at: :desc)
     render json: @comments, status: :ok
   end
 
@@ -41,6 +41,6 @@ class CommentsController < ApplicationController
     end
 
     def comment_params
-      params.require(:comment).permit(:body, :post_id)
+      params.require(:comment).permit(:body, :commentable_id, :commentable_type)
     end
 end

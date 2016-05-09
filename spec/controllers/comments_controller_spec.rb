@@ -15,8 +15,8 @@ RSpec.describe CommentsController, type: :controller do
       sign_out user
     end
     it 'assigns comments' do
-      comment = create :comment, post: post_model
-      get :index, post_id: post_model.id
+      comment = create :comment, commentable_id: post_model.id, commentable_type: 'Post'
+      get :index, commentable_id: post_model.id, commentable_type: 'Post'
       expect(assigns(:comments)).to eq([comment])
     end
     it 'ok status' do
@@ -55,7 +55,7 @@ RSpec.describe CommentsController, type: :controller do
 
       it 'redirect_to new_user_session_path' do
         post :create, comment: valid_attrs
-        expect(response).to redirect_to(new_user_session_path) 
+        expect(response).to redirect_to(new_user_session_path)
       end
     end
   end

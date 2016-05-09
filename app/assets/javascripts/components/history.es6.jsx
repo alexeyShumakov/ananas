@@ -35,11 +35,10 @@ class History extends React.Component {
         <div dangerouslySetInnerHTML={this.rawMd()}></div>
     }
     if (this.state.isShow) {
-      body = 
+      body =
         <div className="panel panel-default">
           <div className="panel-heading">
-            <b> name:</b> {this.props.history.name}
-            <b> email:</b> {this.props.history.email}
+            {this.props.history.title}
             <hr/>
             <button className="btn btn-default" onClick={this.toggleIsMd.bind(this)}>{ this.state.isMd ? 'скрыть разметку' : 'показать разметку'}</button>
           </div>
@@ -55,7 +54,7 @@ class History extends React.Component {
 
     return(
       <div className='history' >
-        <a href={`/histories/${this.props.history.id}`}>{`${this.props.history.name}, ${this.props.history.email}`}</a>
+        <a href={`/histories/${this.props.history.id}`}>{this.props.history.title}</a>
         <button className="btn btn-default pull-right" onClick={this.toggleIsShow.bind(this)}>{ this.state.isShow ? 'скрыть историю' : 'показать историю'}</button>
         <div className="clearfix"></div>
         {body}

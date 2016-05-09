@@ -82,14 +82,14 @@ RSpec.describe HistoriesController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        { name: 'new name'}
+        { title: 'new title'}
       }
 
       it "updates the requested history" do
         history = History.create! valid_attributes
         put :update, {:id => history.to_param, :history => new_attributes}, valid_session
         history.reload
-        expect(history.name).to eq('new name')
+        expect(history.title).to eq('new title')
       end
 
       it "assigns the requested history as @history" do

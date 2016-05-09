@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe "histories/new", type: :view do
   before(:each) do
+    sign_in create(:user)
     assign(:history, History.new(
-      :name => "MyString",
-      :email => "MyString",
+      :title => "MyString",
       :history => "MyText"
     ))
   end
@@ -14,9 +14,7 @@ RSpec.describe "histories/new", type: :view do
 
     assert_select "form[action=?][method=?]", histories_path, "post" do
 
-      assert_select "input#history_name[name=?]", "history[name]"
-
-      assert_select "input#history_email[name=?]", "history[email]"
+      assert_select "input#history_title[name=?]", "history[title]"
 
       assert_select "textarea#history_history[name=?]", "history[history]"
     end

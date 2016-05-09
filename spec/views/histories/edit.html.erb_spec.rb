@@ -3,8 +3,7 @@ require 'rails_helper'
 RSpec.describe "histories/edit", type: :view do
   before(:each) do
     @history = assign(:history, History.create!(
-      :name => "MyString",
-      :email => "MyString@email.com",
+      :title => "MyString",
       :history => "MyText"
     ))
   end
@@ -14,9 +13,7 @@ RSpec.describe "histories/edit", type: :view do
 
     assert_select "form[action=?][method=?]", history_path(@history), "post" do
 
-      assert_select "input#history_name[name=?]", "history[name]"
-
-      assert_select "input#history_email[name=?]", "history[email]"
+      assert_select "input#history_title[name=?]", "history[title]"
 
       assert_select "textarea#history_history[name=?]", "history[history]"
     end

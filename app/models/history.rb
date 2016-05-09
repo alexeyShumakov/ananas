@@ -1,6 +1,10 @@
 class History < ActiveRecord::Base
-  validates :email, format: { with: /\A[^@\s]+@[^@\s]+\z/ }
-  validates :email, :name, presence: true, length: { in: 2..100 }
+
+  attr_readonly :comments_count
+  has_many :comments, dependent: :destroy, as: :commentable
+  belongs_to :user
+
+  validates :title, presence: true, length: { in: 2..100 }
   validates :history, presence: true, length: { maximum: 100000 }
 
   paginates_per 10

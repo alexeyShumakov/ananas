@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   validates_attachment_size :avatar, less_than: 5.megabytes
 
   has_many :posts
+  has_many :histories
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :likes, dependent: :destroy

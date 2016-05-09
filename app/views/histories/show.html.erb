@@ -1,3 +1,26 @@
 <div class="row">
-  <%= render partial: 'history', locals: { history: @history } %>
+  <div class="col-md-offset-3 col-md-9">
+    <h3> <%= @history.title %> </h3>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-3">
+    <%= image_tag @history.user.avatar.url(:small), class: 'img-circle center-block' %>
+    <p class='text-center'><%= @history.user.username %> </p>
+    <p class='text-center'>
+      <span class="glyphicon glyphicon-comment"></span> <%= @history.comments.size %>
+    </p>
+  </div>
+
+  <div class="col-md-9">
+    <div class="history">
+      <p> <%= to_markdown @history.history %> </p>
+    </div>
+    <div class="clearfix"></div>
+
+    <hr>
+    <h2>Комментарии</h2>
+    <%= react_component 'CommentBox', url: comments_url(commentable_id: @history.id, commentable_type: 'History'),
+      commentable_type: 'History', commentable_id: @history.id, isSignedIn: user_signed_in? %>
+  </div>
 </div>

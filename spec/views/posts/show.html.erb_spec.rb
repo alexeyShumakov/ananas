@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "posts/show.html.erb", type: :view do
   let!(:moderator) { create :major_moderator }
   let!(:post_model) { create :post }
-  let!(:comment) { create :comment, post: post_model, user: moderator }
+  let!(:comment) { create :comment, commentable_id: post_model.id, commentable_type: 'Post', user: moderator }
 
   before(:each) do
     assign(:post, post_model)

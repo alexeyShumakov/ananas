@@ -60,12 +60,17 @@ class CommentBox extends React.Component {
     return $.ajax({
       url: '/comments',
       type:'post',
-      data: { comment: {body: text, post_id: _this.props.post_id } }
+      data: { comment: {
+        body: text,
+        commentable_id: _this.props.commentable_id,
+        commentable_type: _this.props.commentable_type
+        }
+      }
     }).then(
       (data) => {
         _this.setState((prevState) => {
           let newState = prevState;
-          newState.comments.push(data.comment);
+          newState.comments.unshift(data.comment);
           return newState;
         });
       }, (err) => {
@@ -84,7 +89,7 @@ class CommentBox extends React.Component {
     }).then(
       (data) => {
         comments.find((element, index, array) => {
-          if (element.url === data.comment.url) { 
+          if (element.url === data.comment.url) {
             element.likesCount = data.comment.likesCount;
             element.hasLiked = data.comment.hasLiked;
           }

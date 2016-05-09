@@ -53,6 +53,7 @@
         <% all_categories.each do |category| %>
           <li> <%= link_to category.title, category_path(category.id) %></li>
         <% end %>
+        <li> <%= link_to 'Истории', histories_path %></li>
       </ul>
     </div>
     <div class="row">

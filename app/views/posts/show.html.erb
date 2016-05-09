@@ -40,7 +40,7 @@
     </div>
 
     <h2>Комментарии</h2>
-    <%= react_component 'CommentBox', url: comments_url(post_id: @post.id), post_id: @post.id, isSignedIn: user_signed_in? %>
+    <%= react_component 'CommentBox', url: comments_url(commentable_id: @post.id, commentable_type: 'Post'), commentable_type: 'Post', commentable_id: @post.id, isSignedIn: user_signed_in? %>
     <hr>
   </div>
 </div>

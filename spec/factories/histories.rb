@@ -1,11 +1,11 @@
 FactoryGirl.define do
   factory :history do
-    name "MyString"
-    email "MyString@email.com"
+    user
+    title "MyString"
     history "MyText"
 
     factory :invalid_history do
-      name ''
+      title ''
     end
   end
 end
