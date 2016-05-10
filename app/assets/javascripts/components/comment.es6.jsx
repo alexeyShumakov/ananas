@@ -50,18 +50,31 @@ class Comment extends React.Component {
     let editButtons;
     let mainComment;
     let error;
+    let likeButton =
+      <button className={`btn btn-${hasLiked ? 'primary' : 'default'}`} onClick={this.updateLike.bind(this)}>
+        <span className="glyphicon glyphicon-thumbs-up"></span> {this.props.likesCount}
+      </button>
+
     if (this.state.error) {
       error = <div> {this.state.error} </div>
     }
     if (this.props.canEdit) {
       editButtons = 
-        <div className="pull-right">
-          <button className="btn btn-default btn-sm" onClick={this.deleteComment.bind(this)}>
+        <div className="btn-group btn-group-sm pull-right">
+          <button className="btn btn-default" onClick={this.deleteComment.bind(this)}>
             <span className="glyphicon glyphicon-remove"></span>
           </button>
-          <button className="btn btn-default btn-sm" onClick={this.toggleEdit.bind(this)}>
+          <button className="btn btn-default" onClick={this.toggleEdit.bind(this)}>
             <span className="glyphicon glyphicon-pencil"></span>
           </button>
+          {likeButton}
+        </div>
+    } else {
+      editButtons = 
+        <div className="btn-group btn-group-sm pull-right">
+          <div className="btn-group btn-group-sm">
+            {likeButton}
+          </div>
         </div>
     }
 
@@ -90,10 +103,7 @@ class Comment extends React.Component {
         <div className="media-body">
           <h4 className="media-heading">
             {this.props.author}
-            <button className={`pull-right btn btn-sm btn-${hasLiked ? 'primary' : 'default'}`} onClick={this.updateLike.bind(this)}>
-              <span className="glyphicon glyphicon-thumbs-up"></span> {this.props.likesCount}
-            </button>
-            {editButtons}
+              {editButtons}
           </h4>
           {mainComment}
         </div>
