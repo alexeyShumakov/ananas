@@ -8,6 +8,12 @@
       <dd><%= current_user.email %></dd>
       <dt>Имя</dt>
       <dd><%= current_user.username %></dd>
+      <% if current_user.email.present? %>
+        <dt>подписка</dt>
+        <dd>
+          <%= react_component 'Mailing', weekly_mailing: current_user.weekly_mailing? %>
+        </dd>
+      <% end %>
     </dl>
 
     <%= render partial: "users/panels/#{current_user.role}_panel" %>

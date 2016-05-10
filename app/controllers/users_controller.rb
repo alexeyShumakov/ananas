@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def search
-    authorize User 
+    authorize User
     @users = User.search_by_email(params[:keyword])
     render json: @users, status: :ok
   end
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   end
 
   def self_user_params
-    params.require(:user).permit(:email, :username, :avatar)
+    params.require(:user).permit(:weekly_mailing, :email, :username, :avatar)
   end
 
   def user_params
