@@ -3,10 +3,16 @@ class HistoriesController < ApplicationController
   before_action :set_history, only: [:show, :edit, :update, :destroy]
 
   def index
-    @histories = History.all.order(created_at: :desc).page(params[:page])
+    @histories = History.where(moderated: true).order(created_at: :desc).page(params[:page])
   end
 
   def show
+    if @history.moderated
+      @history.impressions += 1
+      @history.save
+    else
+      redirect_to root_path
+    end
   end
 
   def new
@@ -30,17 +36,24 @@ class HistoriesController < ApplicationController
 
   def update
       authorize @history
-      if @history.update(history_params)
-        redirect_to @history, notice: 'History was successfully updated.'
-      else
-        render :edit
+      respond_to do |format|
+        if @history.update(permitted_attributes(@history))
+          format.json { render json: @history }
+          format.html { redirect_to  private_office_path }
+        else
+          format.json { render json: @history.errors, status: :unprocessable_entity }
+          format.html { render :edit, status: :unprocessable_entity }
+        end
       end
   end
 
   def destroy
     authorize History
     @history.destroy
-    redirect_to histories_url, notice: 'History was successfully destroyed.'
+    respond_to do |format|
+      format.json { render json: {status: 'ok'} }
+      format.html { redirect_to private_office_path }
+    end
   end
 
   private

@@ -4,6 +4,7 @@ class CreateHistories < ActiveRecord::Migration
       t.string :title
       t.text :history
       t.boolean :moderated, default: false, null: false
+      t.integer :impressions, default: 0, null: false
       t.integer :comments_count, default: 0
       t.references :user, index: true, foreign_key: true
       t.timestamps null: false

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:update]
 
   def private_office
-    @histories = History.order(created_at: :desc).first(10)
+    @histories = History.where(moderated: false).order(created_at: :desc)
   end
 
   def search

@@ -19,6 +19,7 @@ RSpec.describe HistoriesController, type: :controller do
 
   describe "GET #index" do
     it "assigns all histories as @histories" do
+      history = create :history, moderated: true
       get :index
       expect(assigns(:histories)).to eq([history])
     end
@@ -98,10 +99,24 @@ RSpec.describe HistoriesController, type: :controller do
         expect(assigns(:history)).to eq(history)
       end
 
-      it "redirects to the history" do
+      it "redirects to the private_office" do
         history = History.create! valid_attributes
         put :update, {:id => history.to_param, :history => valid_attributes}, valid_session
-        expect(response).to redirect_to(history)
+        expect(response).to redirect_to(private_office_path)
+      end
+
+      it 'moderator can update moderated field' do
+        history = create :history
+        put :update, {:id => history.to_param, :history => {moderated: true}}
+        history.reload
+        expect(assigns(:history)).to eq(history)
+      end
+
+      it 'user cant update moderated field' do
+        sign_in(create :user)
+        history = create :history
+        put :update, {:id => history.to_param, :history => {moderated: true}}
+        expect(assigns(:history).moderated).to eq(false)
       end
     end
 
@@ -128,10 +143,10 @@ RSpec.describe HistoriesController, type: :controller do
       }.to change(History, :count).by(-1)
     end
 
-    it "redirects to the histories list" do
+    it 'redirect_to private_office_path' do
       history = History.create! valid_attributes
-      delete :destroy, {:id => history.to_param}, valid_session
-      expect(response).to redirect_to(histories_url)
+      delete :destroy, { id: history.to_param }
+      expect(response).to redirect_to(private_office_path)
     end
   end
 

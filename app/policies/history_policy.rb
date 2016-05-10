@@ -1,5 +1,13 @@
 class HistoryPolicy < ApplicationPolicy
 
+  def permitted_attributes
+    if user.user?
+      [:title, :history]
+    else
+      [:title, :history, :moderated]
+    end
+  end
+
   def edit?
     user.major_moderator? || user.minor_moderator?
   end

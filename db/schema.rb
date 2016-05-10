@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20160508141344) do
     t.string   "title"
     t.text     "history"
     t.boolean  "moderated",      default: false, null: false
+    t.integer  "impressions",    default: 0,     null: false
     t.integer  "comments_count", default: 0
     t.integer  "user_id"
     t.datetime "created_at",                     null: false
