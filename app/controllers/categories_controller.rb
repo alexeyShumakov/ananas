@@ -5,14 +5,28 @@ class CategoriesController < ApplicationController
 
   after_action :verify_authorized, only: [:new, :create, :edit, :update, :destroy]
 
+  def index
+    respond_to do |format|
+      format.html {}
+      format.json { render json: Category.all }
+    end
+  end
   def newest
     @posts = Post.includes(:user, :category).order(created_at: :desc).page(params[:page])
+    respond_to do |format|
+      format.html {}
+      format.json { render json: @posts, root: 'posts' }
+    end
   end
 
   def show
     @posts = @category.posts.order(created_at: :desc).page(params[:page])
+    respond_to do |format|
+      format.html {}
+      format.json { render json: @posts, root: 'posts' }
+    end
   end
-  
+
   def new
     @category = Category.new
   end

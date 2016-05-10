@@ -1,8 +1,15 @@
 class PostSerializer < ApplicationSerializer
-  attributes :id, :favorites_count, :has_favorite, :title, :url, :impressions
+  has_one :user
+  attributes :id, :body,
+    :favorites_count, :has_favorite, :created_at,
+    :title, :url, :impressions, :sinopsis, :avatar_medium_url
 
   def url
     post_path(object)
+  end
+
+  def avatar_medium_url
+    object.avatar.url(:medium)
   end
 
   def favortes_count

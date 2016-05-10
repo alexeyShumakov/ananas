@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   root 'categories#newest'
 
   get 'categories/newest', to: 'categories#newest'
-  resources :categories, except: [:index]
+  resources :categories
   resources :posts, except: [:index] do
     get 'search', on: :collection
     get 'md_preview', on: :collection
