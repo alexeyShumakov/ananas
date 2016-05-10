@@ -49,10 +49,11 @@ ActiveRecord::Schema.define(version: 20160508141344) do
   create_table "histories", force: :cascade do |t|
     t.string   "title"
     t.text     "history"
+    t.boolean  "moderated",      default: false, null: false
     t.integer  "comments_count", default: 0
     t.integer  "user_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   add_index "histories", ["user_id"], name: "index_histories_on_user_id", using: :btree
