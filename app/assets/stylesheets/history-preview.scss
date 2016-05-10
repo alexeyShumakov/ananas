@@ -1,0 +1,9 @@
+.history-preview {
+  .history-preview__history {
+    overflow-y: hidden;
+    max-height: 450px;
+  }
+  img {
+    max-width: 100%;
+  }
+}

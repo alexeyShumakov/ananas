@@ -6,7 +6,7 @@
         <h3> <%= history.title %> </h3>
       </div>
     </div>
-    <div class="row">
+    <div class="row history-preview">
       <div class="col-md-3">
         <%= image_tag history.user.avatar.url(:small), class: 'img-circle center-block' %>
         <p class='text-center'><%= history.user.username %> </p>
@@ -16,8 +16,10 @@
         </p>
       </div>
 
-      <div class="col-md-9 post__preview">
-        <p> <%= to_markdown history.history %> </p>
+      <div class="col-md-9">
+        <div class="history-preview__history">
+          <%= to_markdown history.history %>
+        </div>
 
         <%= link_to 'read this history ->', history_path(history.id), class: 'pull-right' %>
         <div class="clearfix"></div>
