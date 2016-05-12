@@ -1,7 +1,8 @@
 class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :commentable, polymorphic: true, counter_cache: true
-  validates :body, presence: true
+  validates :body, presence: true, length: { in: 3.. 150 }
+  validates :user, presence: true
   has_many :likes, dependent: :destroy
 
   def has_liked?(user)
