@@ -25,9 +25,12 @@
         <%= react_component 'PostSearch' %>
 
         <div class="collapse navbar-collapse" id="navbar__collapse">
+          <ul class="nav navbar-nav">
+            <li><%= link_to 'Поделитесь своей историей', new_history_path %></li>
+          </ul>
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
-              <li> <%= link_to current_user.username, '/private_office' %> </li>
+              <li> <%= link_to current_user.username, private_office_path %> </li>
               <li> <%= link_to 'Выход', destroy_user_session_path, method: :delete %> </li>
             <% else %>
               <li> <%= link_to 'Вход', new_user_session_path %> </li>
