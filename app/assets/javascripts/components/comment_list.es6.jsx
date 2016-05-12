@@ -14,6 +14,7 @@ class CommentList extends React.Component {
           author={comment.author}
           hasLiked={comment.hasLiked}
           likesCount={comment.likesCount}
+          createdAt={comment.createdAt}
           key={comment.id} >
           {comment.body}
         </Comment>

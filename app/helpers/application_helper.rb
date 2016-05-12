@@ -6,4 +6,8 @@ module ApplicationHelper
   def all_categories
     Category.all.order(:created_at)
   end
+
+  def formated_date(model)
+    model.created_at.strftime '%d %B %Y'
+  end
 end

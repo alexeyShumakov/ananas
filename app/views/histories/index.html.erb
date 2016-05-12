@@ -10,6 +10,7 @@
       <div class="col-md-3">
         <%= image_tag history.user.avatar.url(:small), class: 'img-circle center-block' %>
         <p class='text-center'><%= history.user.username %> </p>
+        <p class='text-center'><%= formated_date history %> </p>
         <p class='text-center'>
           <span class="glyphicon glyphicon-comment"></span> <%= history.comments.size %>
           <span class="glyphicon glyphicon-eye-open"></span> <%= history.impressions %>

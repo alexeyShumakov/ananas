@@ -1,5 +1,5 @@
 class CommentSerializer < ApplicationSerializer
-  attributes :id, :body, :author, :avatar, :can_edit, :url, :has_liked, :likes_count
+  attributes :id, :body, :author, :avatar, :can_edit, :url, :has_liked, :likes_count, :created_at
 
   private
 

@@ -7,6 +7,7 @@
   <div class="col-md-3">
     <%= image_tag post.user.avatar.url(:small), class: 'img-circle center-block' %>
     <p class='text-center'><%= post.user.username %> </p>
+    <p class='text-center'><%= formated_date post %> </p>
     <p class='text-center'><%= post.category.title %> </p>
     <p class='text-center'>
       <span class="glyphicon glyphicon-eye-open"></span> <%= post.impressions %>

@@ -45,6 +45,15 @@ class Comment extends React.Component {
     let commentId = this.props.id;
     this.props.updateLike(commentId);
   }
+
+  date() {
+    let date = new Date(this.props.createdAt);
+    return date.toLocaleString('ru', {
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    });
+  }
   render () {
     let hasLiked = this.props.hasLiked;
     let editButtons;
@@ -102,7 +111,7 @@ class Comment extends React.Component {
 
         <div className="media-body">
           <h4 className="media-heading">
-            {this.props.author}
+            {this.props.author}, { this.date() }
               {editButtons}
           </h4>
           {mainComment}
