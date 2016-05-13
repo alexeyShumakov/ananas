@@ -7,5 +7,7 @@
   <%= f.button :submit %>
 <% end %>
 <hr/>
+<%= render partial: 'md_helper' %>
+<hr/>
 <%= react_component 'PictureUploader' %>
 <%= react_component 'MdPreview', element_id: '#post_body' %>

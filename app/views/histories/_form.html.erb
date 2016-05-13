@@ -10,5 +10,9 @@
     <%= f.button :submit %>
   </div>
 <% end %>
-  <%= react_component 'PictureUploader' %>
-  <%= react_component 'MdPreview', element_id: '#history_history' %>
+
+<hr/>
+<%= render partial: 'md_helper' %>
+<hr/>
+<%= react_component 'PictureUploader' %>
+<%= react_component 'MdPreview', element_id: '#history_history' %>

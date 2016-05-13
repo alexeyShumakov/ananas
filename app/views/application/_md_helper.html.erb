@@ -1,0 +1,138 @@
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mdHelper">
+  Как пользоваться разметкой
+</button>
+<div class="modal fade" id="mdHelper" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Как пользоваться Markdown разметкой</h4>
+      </div>
+      <div class="modal-body">
+        <p>
+          Markdown - простой язык разметки.
+        </p>
+        <p>
+          <h3>Параграфы</h3>
+          используйте пустые линии
+          <pre>
+Параграф 1
+
+Параграф 2
+          </pre>
+          получим
+          <p>Парагарф 1</p>
+          <p>Парагарф 2</p>
+          <hr>
+          <h3>Заголовки</h3>
+          Используйте хэши
+          <pre>
+# Заголовок H1
+## Заголовок H2
+### Заголовок H3
+#### Заголовок H4
+##### Заголовок H5
+###### Заголовок H6
+          </pre>
+          <h1>Заголовок H1</h1>
+          <h2>Заголовок H2</h2>
+          <h3>Заголовок H3</h3>
+          <h4>Заголовок H4</h4>
+          <h5>Заголовок H5</h5>
+          <h6>Заголовок H6</h6>
+
+          или подчеркивание
+          <pre>
+Заголовок H1
+============
+
+Заголовок H2
+------------
+          </pre>
+          <h1>Заголовок H1</h1>
+          <h2>Заголовок H2</h2>
+          <hr>
+          <h3>Цитаты</h3>
+          Для цитат используйте символ ">"
+          <pre>
+> Это
+>
+> Цитата
+          </pre>
+          <blockquote>
+            <p>Этo</p>
+            <p>Цитата</p>
+          </blockquote>
+          <hr>
+          <h3>Разделительная черта</h3>
+          <pre>
+* * *
+
+---
+
+  _  _  _  _
+
+---------------
+          </pre>
+          получим
+          <hr>
+          <hr>
+          <hr>
+          <hr>
+          <h3>Списки</h3>
+          <pre>
+1. Элемент 1
+2. Элемент 2
+3. Элемент 3
+
+* Элемент 1
+* Элемент 2
+* Элемент 3
+          </pre>
+          получим
+          <ol>
+            <li>Элемент 1</li>
+            <li>Элемент 2</li>
+            <li>Элемент 3</li>
+          </ol>
+          <ul>
+            <li>Элемент 1</li>
+            <li>Элемент 2</li>
+            <li>Элемент 3</li>
+          </ul>
+          <hr>
+          <h3>Выделение текста</h3>
+          <pre>
+*Курсивный текст*, _Курсивный текст_, **Жирный текст**, __Жирный текст__
+          </pre>
+          получим
+          <p>
+            <em>Курсивный текст</em>, <em>Курсивный текст</em>, <b>Жирный текст</b>, <b>Жирный текст</b>
+          </p>
+          <hr>
+          <h3>Ссылки и картинки</h3>
+          <pre>
+[Ссылка](http://example.com)
+
+![картинка](http://example.com/image.png)
+          </pre>
+          получим
+          <p>
+            <a href="http://example.com">Ссылка</a>
+          </p>
+          <p>
+            <img src="http://example.com/image.png" alt="">
+          </p>
+        </p>
+        <hr>
+        <p>
+          Этих функций достаточно, чтобы писать стати и истории. Для дополнительной информации
+          пройдите по ссылки
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+      </div>
+    </div>
+  </div>
+</div>
