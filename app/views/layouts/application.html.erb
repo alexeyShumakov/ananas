@@ -45,32 +45,37 @@
   <%= render 'layouts/messages' %>
   <div class="jumborton">
     <div class="container">
-      <h1 class='text-center'>Ananas</h1>
+      <h1 class='text-center'>Ананас</h1>
     </div>
   </div>
   <div class="container">
     <div class="row">
-      <ul class='nav nav-pills'>
-        <li>
-          <%= link_to root_path do %>
-            <span class="glyphicon glyphicon-home"></span>
+
+      <div class="ananas-nav">
+        <ul class='nav nav-pills'>
+          <li>
+            <%= link_to root_path do %>
+              <span class="glyphicon glyphicon-home"></span>
+            <% end %>
+          </li>
+          <% all_categories.each do |category| %>
+            <li> <%= link_to category.title, category_path(category.id) %></li>
           <% end %>
-        </li>
-        <% all_categories.each do |category| %>
-          <li> <%= link_to category.title, category_path(category.id) %></li>
-        <% end %>
-        <li> <%= link_to 'Истории', histories_path %></li>
-      </ul>
+          <li> <%= link_to 'Истории', histories_path %></li>
+        </ul>
+      </div>
+
     </div>
     <div class="row">
       <div class="col-md-9">
         <%= yield %>
       </div>
       <div class="col-md-3">
-        <div class="panel panel-default">
+        <div class="best-posts-panel panel panel-default">
           <div class="panel-body">
-            <h3>Лучшее за неделю</h3>
+            <h3 class='text-center' >Лучшее за неделю</h3>
               <% Post.best_weekly.each do |post_model| %>
+                <hr>
                 <div class='text-center'>
                   <p> <%= link_to post_model.title, post_path(post_model.id) %> </p>
                   <span class="glyphicon glyphicon-eye-open"></span> <%= post_model.impressions %>
@@ -87,11 +92,10 @@
         <li><%= link_to 'О нас', support_about_path %></li>
         <li><%= link_to 'Реклама', support_ads_path %></li>
         <li><%= link_to 'Сотрудничество', support_partner_path %></li>
-        <li><a href="#">Иллюстраторам</a></li>
         <li><%= link_to 'Поделитесь своей историей', new_history_path %></li>
       </ul>
-      <h3 class='text-center'>amazing footer here!</h3>
-      <h4 class='text-center'>ananas</h4>
+      <h4 class='text-center'>Ананас</h4>
+      <p class='text-center'>2016</p>
     </footer>
   </div>
 

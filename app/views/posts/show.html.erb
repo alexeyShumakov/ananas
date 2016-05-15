@@ -12,7 +12,9 @@
 
   <div class="col-md-9">
     <div class="post__main">
-      <%= react_component 'PostFavorites', @json_post %>
+      <div class="pull-right">
+        <%= react_component 'PostFavorites', @json_post %>
+      </div>
       <h2><%= @post.title %></h2>
 
       <%= render partial: 'posts/crud_links', locals: { post: @post } %>

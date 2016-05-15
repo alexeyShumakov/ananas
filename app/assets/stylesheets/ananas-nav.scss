@@ -1,0 +1,16 @@
+.ananas-nav {
+  background-color: #ffcd00;
+  border-radius: 2px;
+  margin-bottom: 20px;
+  font-size: 1.2em;
+
+  a {
+    color: #010000;
+  }
+
+  a:hover {
+
+    color: lighten(#010000, 15%);
+  }
+}
+

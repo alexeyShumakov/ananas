@@ -2,12 +2,21 @@
   margin-top: 20px;
 }
 
-
 .post__preview {
   img {
     max-width: 100%;
   }
 }
+
+.post__read-this {
+  &:hover {
+    color: #a2dc4a;
+    text-decoration: none;
+  }
+  font-size: 1.2em;
+  color: #010000;
+}
+
 .post__main {
   img {
     max-width: 100%;

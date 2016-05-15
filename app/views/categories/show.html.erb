@@ -4,7 +4,6 @@
     <% if user_signed_in? && policy(@category).update? %>
       <span> <%= render 'crud_links' %> </span>
     <% end %>
-    <hr>
   </div>
 </div>
 <% @posts.each do |post| %>
