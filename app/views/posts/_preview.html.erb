@@ -1,6 +1,5 @@
 <div class="row">
   <div class="col-md-offset-3 col-md-9">
-    <h3> <%= post.title %> </h3>
   </div>
 </div>
 <div class="row">
@@ -9,19 +8,20 @@
     <p class='text-center'><%= post.user.username %> </p>
     <p class='text-center'><%= formated_date post %> </p>
     <p class='text-center'><%= post.category.title %> </p>
-    <p class='text-center'>
-      <span class="glyphicon glyphicon-eye-open"></span> <%= post.impressions %>
-      <span class="glyphicon glyphicon-comment"></span> <%= post.comments.size %>
-    </p>
   </div>
 
   <div class="col-md-9 post__preview">
+    <%= render partial: 'posts/crud_links', locals: { post: post } %>
+    <div class='icon-box'>
+        <span class="icon-box__eye"></span> <%= post.impressions %>
+        <span class="icon-box__like"></span> <%= post.comments.size %>
+    </div>
+    <h3> <%= post.title %> </h3>
     <%= link_to post do %>
       <%= image_tag post.avatar.url(:medium) %>
     <% end %>
     <p> <%= to_markdown post.sinopsis %> </p>
 
-    <%= render partial: 'posts/crud_links', locals: { post: post } %>
 
     <b> <%= link_to 'Читать этот пост', post_path(post.id), class: 'pull-right post__read-this' %> </b>
     <div class="clearfix"></div>

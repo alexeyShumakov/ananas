@@ -1,4 +1,12 @@
 <% if user_signed_in? && policy(post).update? %>
-    <%= link_to 'delete', post_path(post.id), method: :delete, data: { confirm: 'delete this post and comments?' } %>
-    or <%= link_to 'edit', edit_post_path(post.id) %>
+    <div class='icon-box pull-right'>
+      <%= link_to post_path(post.id), method: :delete, data: { confirm: 'delete this post and comments?' } do %>
+        <span class="icon-box__delete"></span>
+      <% end %>
+
+      <%= link_to edit_post_path(post.id) do %>
+        <span class="icon-box__edit"></span>
+      <% end %>
+    </div>
+
 <% end %>

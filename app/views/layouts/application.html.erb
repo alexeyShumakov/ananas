@@ -48,7 +48,7 @@
       <h1 class='text-center'>Ананас</h1>
     </div>
   </div>
-  <div class="container">
+  <div class="container main-container">
     <div class="row">
 
       <div class="ananas-nav">
@@ -93,6 +93,24 @@
         <li><%= link_to 'Реклама', support_ads_path %></li>
         <li><%= link_to 'Сотрудничество', support_partner_path %></li>
         <li><%= link_to 'Поделитесь своей историей', new_history_path %></li>
+      </ul>
+      <ul class="list-inline text-center social-links">
+        <li>
+          <%= link_to '#' do %> 
+            <%= image_tag('fb-art.jpg') %>
+          <% end %>
+        </li>
+
+        <li>
+          <%= link_to '#' do %> 
+            <%= image_tag('Instagram_logo.png') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to '#' do %> 
+            <%= image_tag('vk_logo_small_blue.png') %>
+          <% end %>
+        </li>
       </ul>
       <h4 class='text-center'>Ананас</h4>
       <p class='text-center'>2016</p>

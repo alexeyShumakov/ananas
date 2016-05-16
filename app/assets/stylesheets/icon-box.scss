@@ -1,0 +1,35 @@
+.icon-box {
+  a {
+    text-decoration: none;
+  }
+  display: inline-block;
+  font-size: 1.4em;
+}
+@mixin icon($url) {
+  width: 24px;
+  height: 24px;
+  background: url($url);
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  position: relative;
+  top: 3px;
+  display: inline-block;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+}
+.icon-box__eye {
+  @include icon('icons/icon-eye.png');
+}
+
+.icon-box__like {
+  @include icon('icons/icon-like.png');
+}
+.icon-box__delete {
+  @include icon('icons/icon-delete.png');
+}
+
+.icon-box__edit {
+  @include icon('icons/icon-edit.png');
+}

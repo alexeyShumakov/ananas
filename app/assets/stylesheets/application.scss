@@ -9,3 +9,16 @@
 @import 'navbar-brand';
 @import 'ananas-nav';
 @import 'best-posts-panel';
+@import 'social-links';
+@import 'icon-box';
+
+body {
+  background-image: url('left_fon.png'), url('right_fon.png');
+  background-position: left top, right top;
+  background-repeat: repeat-y;
+
+}
+
+.main-container {
+  background-color: #fff;
+}
