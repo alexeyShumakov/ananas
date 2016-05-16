@@ -1,2 +1,9 @@
-<%= link_to 'delete', category_path(@category.id), method: :delete, data: { confirm: 'delete this category and posts?' } %>
-or <%= link_to 'edit', edit_category_path(@category.id) %>
+<div class='icon-box'>
+  <%= link_to category_path(@category.id), method: :delete, data: { confirm: 'delete this category and posts?' } do %>
+    <span class="icon-box__delete"></span>
+  <% end %>
+
+  <%= link_to edit_category_path(@category.id) do %>
+    <span class="icon-box__edit"></span>
+  <% end %>
+</div>
