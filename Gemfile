@@ -15,7 +15,8 @@ gem 'paperclip'
 gem 'simple_form'
 gem 'kramdown'
 gem 'pundit'
-gem 'administrate', '~> 0.1.5'
+gem 'administrate', "~> 0.2.0"
+gem "administrate-field-image"
 gem 'whenever', :require => false
 gem 'rest-client'
 gem 'omniauth-facebook'

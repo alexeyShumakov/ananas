@@ -8,7 +8,7 @@
 @mixin icon($url) {
   width: 24px;
   height: 24px;
-  background: url($url);
+  background: image-url($url);
   background-repeat: no-repeat;
   background-size: contain;
 

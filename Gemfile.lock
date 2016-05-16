@@ -39,7 +39,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.4.0)
-    administrate (0.1.5)
+    administrate (0.2.0)
       autoprefixer-rails (~> 6.0)
       datetime_picker_rails (~> 0.0.7)
       jquery-rails (~> 4.0)
@@ -50,8 +50,11 @@ GEM
       rails (~> 4.2)
       sass-rails (~> 5.0)
       selectize-rails (~> 0.6)
+    administrate-field-image (0.0.2)
+      administrate (>= 0.2.0.rc1, < 0.3.0)
+      rails (~> 4.2)
     arel (6.0.3)
-    autoprefixer-rails (6.3.6)
+    autoprefixer-rails (6.3.6.1)
       execjs
     awesome_print (1.6.1)
     babel-source (5.8.35)
@@ -89,7 +92,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.10.0)
-    concurrent-ruby (1.0.1)
+    concurrent-ruby (1.0.2)
     connection_pool (2.2.0)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
@@ -297,7 +300,7 @@ GEM
       sprockets (>= 3.0.0)
     thor (0.19.1)
     thread_safe (0.3.5)
-    tilt (2.0.2)
+    tilt (2.0.4)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (3.0.0)
@@ -322,7 +325,8 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
-  administrate (~> 0.1.5)
+  administrate (~> 0.2.0)
+  administrate-field-image
   awesome_print
   better_errors
   bootstrap-sass (~> 3.3.6)

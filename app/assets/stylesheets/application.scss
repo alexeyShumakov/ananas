@@ -1,3 +1,7 @@
+/*
+ *= require_self
+ */
+
 @import 'variables';
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -13,7 +17,7 @@
 @import 'icon-box';
 
 body {
-  background-image: url('left_fon.png'), url('right_fon.png');
+  background-image: image-url('left_fon.png'), image-url('right_fon.png');
   background-position: left top, right top;
   background-repeat: repeat-y;
 
