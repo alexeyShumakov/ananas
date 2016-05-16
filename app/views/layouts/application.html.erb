@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
   <nav class="navbar navbar-default">
@@ -96,18 +97,18 @@
       </ul>
       <ul class="list-inline text-center social-links">
         <li>
-          <%= link_to '#' do %> 
+          <%= link_to '#' do %>
             <%= image_tag('fb-art.jpg') %>
           <% end %>
         </li>
 
         <li>
-          <%= link_to '#' do %> 
+          <%= link_to '#' do %>
             <%= image_tag('Instagram_logo.png') %>
           <% end %>
         </li>
         <li>
-          <%= link_to '#' do %> 
+          <%= link_to '#' do %>
             <%= image_tag('vk_logo_small_blue.png') %>
           <% end %>
         </li>
