@@ -1,12 +1,12 @@
 .best-posts-panel {
-  border-color: #ffcd00;
+  border-color: $orange;
 
   a {
-    color: #010000;
+    color: $black;
   }
 
   hr {
     margin: 5px 0;
-    border-top: 2px solid #a2dc4a;
+    border-top: 2px solid $green;
   }
 }

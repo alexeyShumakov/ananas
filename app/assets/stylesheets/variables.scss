@@ -1,11 +1,26 @@
-$navbar-default-bg: #a2dc4a;
-$navbar-default-border: darken($navbar-default-bg, 6.5%);
-$navbar-default-color: #010000;
-$navbar-default-link-color: #010000;
+$green: #a2dc4a;
+$orange: #ffcd00;
+$black: #010000;
+$brown: #6f3300;
+
+$link-color: $brown;
+
+$navbar-default-bg: $green;
+$navbar-default-border: darken($green, 6.5%);
+$navbar-default-color: $black;
+$navbar-default-link-color: $black;
 $navbar-default-link-hover-color: lighten($navbar-default-link-color, 15%);
 
 $nav-link-hover-bg: none;
 
-$input-border-focus: #ffcd00;
+$input-border-focus: $orange;
 
-$hr-border: #a2dc4a;
+$hr-border: $orange;
+
+$btn-primary-color: $black;
+$btn-primary-bg: $orange;
+$btn-primary-border: darken($orange, 6.5%);
+
+$alert-info-bg: lighten($brown, 65%);
+$alert-info-border: darken($alert-info-bg, 6.5%);
+$alert-info-text: $black;

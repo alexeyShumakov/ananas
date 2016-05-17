@@ -1,16 +1,16 @@
 .ananas-nav {
-  background-color: #ffcd00;
+  background-color: $orange;
   border-radius: 2px;
   margin-bottom: 20px;
   font-size: 1.2em;
 
   a {
-    color: #010000;
+    color: $black;
   }
 
   a:hover {
 
-    color: lighten(#010000, 15%);
+    color: lighten($black, 15%);
   }
 }
 
