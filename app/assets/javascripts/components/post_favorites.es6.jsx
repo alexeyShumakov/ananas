@@ -2,7 +2,7 @@ class PostFavorites extends React.Component {
   constructor(props) {
     super(props);
     let post = props.post;
-    this.state = { 
+    this.state = {
       favoritesCount: post.favoritesCount,
       hasFavorite: post.hasFavorite
     };
@@ -22,10 +22,9 @@ class PostFavorites extends React.Component {
   render () {
     let hasFavorite = this.state.hasFavorite;
     return (
-      <div>
-        <button className="btn btn-default" onClick={this.updateFavorite.bind(this)}>
-          <span className={`glyphicon glyphicon-star${hasFavorite ? '' : '-empty'}`}></span> {this.state.favoritesCount}
-        </button>
+      <div className='icon-box'>
+        <span className={`icon-box__star${hasFavorite ? '' : '-empty'}`}
+          onClick={this.updateFavorite.bind(this)}></span> {this.state.favoritesCount}
       </div>
     );
   }

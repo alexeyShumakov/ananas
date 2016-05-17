@@ -4,20 +4,23 @@
     <p class='text-center'><%= @post.user.username %> </p>
     <p class='text-center'><%= formated_date @post %> </p>
     <p class='text-center'><%= @post.category.title %> </p>
-    <p class='text-center'>
-      <span class="glyphicon glyphicon-eye-open"></span> <%= @post.impressions %> 
-      <span class="glyphicon glyphicon-comment"></span> <%= @post.comments.count %>
-    </p>
+    <div class='text-center'>
+      <div class='icon-box center-block'>
+        <span class="icon-box__eye"></span> <%= @post.impressions %>
+        <span class="icon-box__like"></span> <%= @post.comments.size %>
+      </div>
+    </div>
   </div>
 
   <div class="col-md-9">
     <div class="post__main">
+      <%= render partial: 'posts/crud_links', locals: { post: @post } %>
       <div class="pull-right">
         <%= react_component 'PostFavorites', @json_post %>
       </div>
-      <h2><%= @post.title %></h2>
-
-      <%= render partial: 'posts/crud_links', locals: { post: @post } %>
+      <h2>
+        <%= @post.title %>
+      </h2>
 
       <p><i><%= to_markdown @post.sinopsis %></i></p>
       <hr>
@@ -27,9 +30,13 @@
       </div>
     </div>
 
+    <script type="text/javascript" src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="//yastatic.net/share2/share.js" charset="utf-8"></script>
+    <div class="ya-share2" data-services="vkontakte,facebook,pocket,surfingbird"></div>
+
     <h3>Смотрите так же</h3>
     <hr/>
-    
+
     <div class='posts-similar'>
       <% @post.similar.each do |post| %>
         <%= link_to post_path(post) do %>

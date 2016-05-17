@@ -60,30 +60,24 @@ class Comment extends React.Component {
     let mainComment;
     let error;
     let likeButton =
-      <button className={`btn btn-${hasLiked ? 'primary' : 'default'}`} onClick={this.updateLike.bind(this)}>
-        <span className="glyphicon glyphicon-thumbs-up"></span> {this.props.likesCount}
-      </button>
+      <div>
+        <span className={`icon-box__like${hasLiked ? '' : '-empty'}`} onClick={this.updateLike.bind(this)}></span>{this.props.likesCount}
+      </div>
 
     if (this.state.error) {
       error = <div> {this.state.error} </div>
     }
     if (this.props.canEdit) {
-      editButtons = 
-        <div className="btn-group btn-group-sm pull-right">
-          <button className="btn btn-default" onClick={this.deleteComment.bind(this)}>
-            <span className="glyphicon glyphicon-remove"></span>
-          </button>
-          <button className="btn btn-default" onClick={this.toggleEdit.bind(this)}>
-            <span className="glyphicon glyphicon-pencil"></span>
-          </button>
-          {likeButton}
+      editButtons =
+        <div className="icon-box pull-right">
+          <span className="icon-box__delete" onClick={this.deleteComment.bind(this)}></span>
+          <span className="icon-box__edit" onClick={this.toggleEdit.bind(this)}></span>
+          <span className={`icon-box__like${hasLiked ? '' : '-empty'}`} onClick={this.updateLike.bind(this)}></span> {this.props.likesCount}
         </div>
     } else {
-      editButtons = 
-        <div className="btn-group btn-group-sm pull-right">
-          <div className="btn-group btn-group-sm">
-            {likeButton}
-          </div>
+      editButtons =
+        <div className="icon-box pull-right">
+          <span className={`icon-box__like${hasLiked ? '' : '-empty'}`} onClick={this.updateLike.bind(this)}></span> {this.props.likesCount}
         </div>
     }
 
@@ -94,9 +88,9 @@ class Comment extends React.Component {
             <textarea className="text form-control" value={this.state.text} onChange={this.updateText.bind(this)}></textarea>
           </div>
           {error}
-          <button className="btn btn-default" onClick={this.updateComment.bind(this)}>Изменить</button>
+          <button className="btn btn-primary" onClick={this.updateComment.bind(this)}>Изменить</button>
         </div>
-        
+
     } else {
       mainComment = <div>{this.props.children}</div>
     }
@@ -110,9 +104,9 @@ class Comment extends React.Component {
         </div>
 
         <div className="media-body">
+          {editButtons}
           <h4 className="media-heading">
             {this.props.author}, { this.date() }
-              {editButtons}
           </h4>
           {mainComment}
         </div>

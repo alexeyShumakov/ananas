@@ -5,6 +5,14 @@
   display: inline-block;
   font-size: 1.4em;
 }
+
+@mixin hover {
+  opacity: 0.75;
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+}
 @mixin icon($url) {
   width: 24px;
   height: 24px;
@@ -12,6 +20,7 @@
   background-repeat: no-repeat;
   background-size: contain;
 
+  margin-left: 3px;
   position: relative;
   top: 3px;
   display: inline-block;
@@ -24,12 +33,29 @@
 }
 
 .icon-box__like {
+  @include hover;
   @include icon('icons/icon-like.png');
 }
+
+.icon-box__like-empty {
+  @include hover;
+  @include icon('icons/icon-like-empty.png');
+}
 .icon-box__delete {
+  @include hover;
   @include icon('icons/icon-delete.png');
 }
 
 .icon-box__edit {
+  @include hover;
   @include icon('icons/icon-edit.png');
+}
+.icon-box__star {
+  @include hover;
+  @include icon('icons/icon-star.png');
+}
+
+.icon-box__star-empty {
+  @include hover;
+  @include icon('icons/icon-star-empty.png');
 }
