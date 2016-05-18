@@ -1,0 +1,12 @@
+<% if user_signed_in? && policy(history).update? %>
+    <div class='icon-box pull-right'>
+      <%= link_to history_path(history.id), method: :delete, data: { confirm: 'delete this post and comments?' } do %>
+        <span class="icon-box__delete"></span>
+      <% end %>
+
+      <%= link_to edit_history_path(history.id) do %>
+        <span class="icon-box__edit"></span>
+      <% end %>
+    </div>
+
+<% end %>

@@ -1,11 +1,7 @@
 <div class="row">
   <div class="col-md-offset-3 col-md-9">
+    <%= render partial: 'histories/crud_links', locals: { history: @history } %>
     <h3> <%= @history.title %> </h3>
-
-  <% if user_signed_in? && policy(@history).destroy? %>
-      <%= link_to 'delete', history_path(@history.id), method: :delete, data: { confirm: 'delete this history and comments?' } %>
-      or <%= link_to 'edit', edit_history_path(@history.id) %>
-  <% end %>
 
   </div>
 </div>
@@ -14,17 +10,24 @@
     <%= image_tag @history.user.avatar.url(:small), class: 'img-circle center-block' %>
     <p class='text-center'><%= @history.user.username %> </p>
     <p class='text-center'><%= formated_date @history %> </p>
-    <p class='text-center'>
-      <span class="glyphicon glyphicon-comment"></span> <%= @history.comments.size %>
-      <span class="glyphicon glyphicon-eye-open"></span> <%= @history.impressions %>
-    </p>
+    <div class='text-center'>
+      <div class='icon-box center-block'>
+        <span class="icon-box__eye"></span> <%= @history.impressions %>
+        <span class="icon-box__message"></span> <%= @history.comments.size %>
+      </div>
+    </div>
   </div>
 
   <div class="col-md-9">
     <div class="history">
       <p> <%= to_markdown @history.history %> </p>
     </div>
+
     <div class="clearfix"></div>
+    <script type="text/javascript" src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="//yastatic.net/share2/share.js" charset="utf-8"></script>
+    <div class="ya-share2" data-services="vkontakte,facebook,pocket,surfingbird"></div>
+
 
     <hr>
     <h2>Комментарии</h2>

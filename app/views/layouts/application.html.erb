@@ -79,7 +79,9 @@
                 <hr>
                 <div class='text-center'>
                   <p> <%= link_to post_model.title, post_path(post_model.id) %> </p>
-                  <span class="glyphicon glyphicon-eye-open"></span> <%= post_model.impressions %>
+                  <div class='icon-box center-block'>
+                    <span class="icon-box__eye"></span> <%= post_model.comments.size %>
+                  </div>
                 </div>
               <% end %>
             </ul>

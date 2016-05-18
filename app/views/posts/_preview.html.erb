@@ -14,7 +14,7 @@
     <%= render partial: 'posts/crud_links', locals: { post: post } %>
     <div class='icon-box'>
         <span class="icon-box__eye"></span> <%= post.impressions %>
-        <span class="icon-box__like"></span> <%= post.comments.size %>
+        <span class="icon-box__message"></span> <%= post.comments.size %>
     </div>
     <h3> <%= post.title %> </h3>
     <%= link_to post do %>

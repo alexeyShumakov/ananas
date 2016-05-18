@@ -28,6 +28,11 @@
   font-weight: normal;
   line-height: 1;
 }
+
+.icon-box__message {
+  @include icon('icons/icon-message.png');
+}
+
 .icon-box__eye {
   @include icon('icons/icon-eye.png');
 }

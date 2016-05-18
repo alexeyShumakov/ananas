@@ -1,4 +1,4 @@
-<h1>Истории</h1>
+<h1 class='text-center'>Истории</h1>
 <div class="row">
   <% @histories.each do |history| %>
     <div class="row">
@@ -11,18 +11,19 @@
         <%= image_tag history.user.avatar.url(:small), class: 'img-circle center-block' %>
         <p class='text-center'><%= history.user.username %> </p>
         <p class='text-center'><%= formated_date history %> </p>
-        <p class='text-center'>
-          <span class="glyphicon glyphicon-comment"></span> <%= history.comments.size %>
-          <span class="glyphicon glyphicon-eye-open"></span> <%= history.impressions %>
-        </p>
       </div>
 
       <div class="col-md-9">
+        <%= render partial: 'histories/crud_links', locals: { history: history } %>
+        <div class='icon-box'>
+            <span class="icon-box__eye"></span> <%= history.impressions %>
+            <span class="icon-box__message"></span> <%= history.comments.size %>
+        </div>
         <div class="history-preview__history">
           <%= to_markdown history.history %>
         </div>
 
-        <%= link_to 'read this history ->', history_path(history.id), class: 'pull-right' %>
+        <b> <%= link_to 'Читать историю', history_path(history.id), class: 'pull-right post__read-this' %> </b>
         <div class="clearfix"></div>
         <hr>
       </div>
