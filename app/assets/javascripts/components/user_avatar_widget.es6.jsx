@@ -30,9 +30,9 @@ class UserAvatarWidget extends React.Component {
     return(
       <div>
         <img src={this.state.avatarUrl}/>
-        <hr/>
-        <b>Изменить аватарку</b>
+        <h4 className='text-center'>Изменить аватарку</h4>
         <input type='file' onChange={this.handleChange.bind(this)}/>
+        <hr/>
       </div>
     );
   }

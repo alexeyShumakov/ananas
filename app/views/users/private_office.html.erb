@@ -1,8 +1,11 @@
 <div class="row">
-  <div class="col-md-12">
     <h1 class='text-center'>Личный кабинет</h1>
+    <hr>
+  <div class="col-md-3">
     <%= react_component 'UserAvatarWidget', avatarUrl: current_user.avatar(:medium) %>
-    <h3> <%= current_user.username %> </h3>
+    <h3 class='text-center'> <%= current_user.username %> </h3>
+  </div>
+  <div class="col-md-9">
     <dl class='dl-horizontal'>
       <dt>email</dt>
       <dd><%= current_user.email %></dd>
