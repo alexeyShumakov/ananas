@@ -16,11 +16,4 @@ RSpec.describe SupportController, type: :controller do
     end
   end
 
-  describe "GET #ads" do
-    it "returns http success" do
-      get :ads
-      expect(response).to have_http_status(:success)
-    end
-  end
-
 end
