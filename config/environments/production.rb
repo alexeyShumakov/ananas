@@ -25,4 +25,16 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   config.active_record.dump_schema_after_migration = false
+  config.action_mailer.asset_host = 'http://ananas-journal.ru:3000'
+  config.action_mailer.default_url_options = { host: 'ananas-journal.ru', port: 3000 }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :user_name => ENV['SMPT_NAME'],
+    :password => ENV['SMPT_PASSWORD'],
+    :domain => 'ananas-journal.ru',
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
 end
