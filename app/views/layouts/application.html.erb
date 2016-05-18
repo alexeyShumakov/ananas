@@ -80,7 +80,7 @@
                 <div class='text-center'>
                   <p> <%= link_to post_model.title, post_path(post_model.id) %> </p>
                   <div class='icon-box center-block'>
-                    <span class="icon-box__eye"></span> <%= post_model.comments.size %>
+                    <span class="icon-box__eye"></span> <%= post_model.impressions %>
                   </div>
                 </div>
               <% end %>
