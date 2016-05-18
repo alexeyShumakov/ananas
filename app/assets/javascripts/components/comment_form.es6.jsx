@@ -48,7 +48,7 @@ class CommentForm extends React.Component {
             <textarea className="text form-control" value={this.state.text} onChange={this.updateText.bind(this)}></textarea>
           </div>
           {error}
-          <button className="btn btn-primary" onClick={this.createComment.bind(this)}>submit</button>
+          <button className="btn btn-primary" onClick={this.createComment.bind(this)}>Написать</button>
         </div>
     } else {
       form =

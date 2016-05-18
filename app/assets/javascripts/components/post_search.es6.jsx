@@ -40,7 +40,7 @@ class PostSearch extends React.Component {
               </li>
             );
           });
-      posts = 
+      posts =
         <ul className='dropdown-menu'>
           {posts}
         </ul>
@@ -55,7 +55,7 @@ class PostSearch extends React.Component {
               onChange={this.handleChange.bind(this)}
               type="text"
               className="form-control"
-              placeholder="Search"/>
+              placeholder="Поиск"/>
           </div>
           {posts}
         </form>

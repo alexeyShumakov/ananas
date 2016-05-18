@@ -27,6 +27,7 @@ gem 'react-rails', '~> 1.6.0'
 gem 'active_model_serializers'
 gem 'kaminari'
 gem 'pg_search'
+gem 'russian'
 
 group :development, :test do
   gem 'bullet'
