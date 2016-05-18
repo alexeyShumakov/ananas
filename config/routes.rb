@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   namespace :support do
     get :about
     get :partner
-    get :ads
   end
 
   resources :pictures
