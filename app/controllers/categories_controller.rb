@@ -12,7 +12,6 @@ class CategoriesController < ApplicationController
     end
   end
   def newest
-    raise ArgumentError
     @posts = Post.includes(:user, :category).order(created_at: :desc).page(params[:page])
     respond_to do |format|
       format.html {}
