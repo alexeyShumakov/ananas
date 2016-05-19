@@ -28,6 +28,7 @@ gem 'active_model_serializers'
 gem 'kaminari'
 gem 'pg_search'
 gem 'russian'
+gem 'rollbar'
 
 group :development, :test do
   gem 'bullet'

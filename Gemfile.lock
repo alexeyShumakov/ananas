@@ -252,6 +252,8 @@ GEM
       railties (>= 4.2.0, < 5.1)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    rollbar (2.11.3)
+      multi_json
     rspec (3.4.0)
       rspec-core (~> 3.4.0)
       rspec-expectations (~> 3.4.0)
@@ -358,6 +360,7 @@ DEPENDENCIES
   rails (= 4.2.6)
   react-rails (~> 1.6.0)
   rest-client
+  rollbar
   rspec-rails (~> 3.0)
   russian
   sass-rails (~> 5.0)
