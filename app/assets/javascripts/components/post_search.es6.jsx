@@ -49,13 +49,14 @@ class PostSearch extends React.Component {
     }
     return(
         <form className="navbar-form navbar-left dropdown post-search" role="search">
-          <div className="form-group">
+          <div className="form-group has-feedback">
             <input
               value={this.state.text}
               onChange={this.handleChange.bind(this)}
               type="text"
               className="form-control"
               placeholder="Поиск"/>
+            <span className="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
           </div>
           {posts}
         </form>
