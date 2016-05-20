@@ -1,7 +1,10 @@
+application_path = File.expand_path("../../", __FILE__)
+directory application_path
 environment ENV['RAILS_ENV'] || 'production'
-pidfile Rails.root.join("tmp/pids/puma.pid").to_s
-stdout_redirect Rails.root.join("tmp/log/stdout").to_s, Rails.root.join("tmp/log/stderr").to_s
+pidfile "#{application_path}/tmp/pids/puma.pid"
+stdout_redirect "#{application_path}/tmp/log/stdout", "#{application_path}/tmp/log/stderr"
 threads 2, 16
 workers 2
 bind 'tcp://0.0.0.0:9292'
 daemonize true
+preload_app!
