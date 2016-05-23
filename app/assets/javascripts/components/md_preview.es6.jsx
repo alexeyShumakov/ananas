@@ -8,7 +8,7 @@ class MdPreview extends React.Component {
     let _this = this;
     let elementId = this.props.element_id;
     let bodyValue = $(elementId).val();
-    $.get('/posts/md_preview', { text: bodyValue }).then(
+    $.post('/posts/md_preview', { text: bodyValue }).then(
       (mdText) => {
         _this.setState({text: mdText.text});
       }

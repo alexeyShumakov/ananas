@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :posts, except: [:index] do
     get 'search', on: :collection
-    get 'md_preview', on: :collection
+    post 'md_preview', on: :collection
   end
   resources :likes, only: [:create]
   resources :favorites, only: [:create]
