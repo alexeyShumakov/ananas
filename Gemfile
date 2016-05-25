@@ -29,6 +29,7 @@ gem 'kaminari'
 gem 'pg_search'
 gem 'russian'
 gem 'rollbar'
+gem 'friendly_id', '~> 5.1.0'
 
 group :development, :test do
   gem 'bullet'

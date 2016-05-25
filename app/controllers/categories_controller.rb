@@ -62,10 +62,10 @@ class CategoriesController < ApplicationController
     authorize Category
   end
   def category_params
-    params.require(:category).permit(:title)
+    params.require(:category).permit(:title, :slug)
   end
 
   def set_category
-    @category = Category.includes(posts: [:user]).find(params[:id])
+    @category = Category.friendly.includes(posts: [:user]).find(params[:id])
   end
 end
