@@ -1,4 +1,4 @@
-<% content_for :title, "Ананас | Расскажите историю" %>
+<% content_for :title, "#{title_prefix} Расскажите историю" %>
 <h1>Расскажите свою историю</h1>
 <% if user_signed_in? %>
   <%= render 'form' %>

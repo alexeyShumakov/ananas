@@ -1,4 +1,4 @@
-<% content_for :title, "Ананас | Личный кабинет" %>
+<% content_for :title, "Личный кабинет" %>
 <div class="row">
     <h1 class='text-center'>Личный кабинет</h1>
     <hr>
@@ -16,7 +16,7 @@
         <dt>Подписка</dt>
         <dd>
           <%= react_component 'Mailing', weekly_mailing: current_user.weekly_mailing? %>
-          <%= link_to "Изменить свой пароль или email", edit_user_registration_path %> 
+          <%= link_to "Изменить свой пароль или email", edit_user_registration_path %>
         </dd>
       <% end %>
     </dl>

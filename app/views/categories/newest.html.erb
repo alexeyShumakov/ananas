@@ -1,6 +1,8 @@
-<% content_for :title, "Ананас | Новые статьи" %>
+<% content_for :title, "#{title_prefix} Новые статьи" %>
+<% content_for :description, "Ананас, молодежный журнал обо всем новом и интересном. Советы на каждый день." %>
 <div class="row">
   <div class="col-md-offset-3 col-md-9">
+    <h2 class="text-center">Новые посты</h2>
   </div>
 </div>
 <% @posts.each do |post| %>

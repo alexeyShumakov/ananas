@@ -10,4 +10,8 @@ module ApplicationHelper
   def formated_date(model)
     I18n.localize(model.created_at, format: :long)
   end
+
+  def title_prefix
+    "Ананас, советы на каждый день | "
+  end
 end

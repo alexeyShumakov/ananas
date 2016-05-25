@@ -1,4 +1,5 @@
-<% content_for :title, "Ананас | #{ @post.title}" %>
+<% content_for :title, @post.title %>
+<% content_for :description, @post.sinopsis %>
 <div class="row">
   <div class="col-md-3">
     <%= image_tag @post.user.avatar.url(:small), class: 'post__avatar img-circle center-block' %>
