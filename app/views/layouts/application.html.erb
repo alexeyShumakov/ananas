@@ -78,7 +78,7 @@
               <% Post.best_weekly.each do |post_model| %>
                 <hr>
                 <div class='text-center'>
-                  <p> <%= link_to post_model.title, post_path(post_model.id) %> </p>
+                  <p> <%= link_to post_model.title, post_path(post_model) %> </p>
                   <div class='icon-box center-block'>
                     <span class="icon-box__eye"></span> <%= post_model.impressions %>
                   </div>

@@ -29,6 +29,7 @@ class PostsController < ApplicationController
     authorize Post
     @post = Post.new post_params
     @post.user = current_user
+    @post.slug = post_params[:title].parameterize
     if @post.save
       redirect_to @post, notice: 'Good!'
     else
@@ -38,6 +39,7 @@ class PostsController < ApplicationController
 
   def update
     authorize @post
+    @post.slug = post_params[:title].parameterize
     if @post.update post_params
       redirect_to @post
     else
@@ -59,7 +61,7 @@ class PostsController < ApplicationController
   private
 
   def set_post
-    @post = Post.includes(:user, comments: [:user]).find(params[:id])
+    @post = Post.friendly.includes(:user, comments: [:user]).find(params[:id])
   end
 
   def post_params

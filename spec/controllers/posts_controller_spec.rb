@@ -86,7 +86,7 @@ RSpec.describe PostsController, type: :controller do
       it 'redirect to post' do
         sign_in user
         post :create, post: attributes_for(:post, category_id: category.id)
-        expect(request).to redirect_to(post_path(assigns(:post).id))
+        expect(request).to redirect_to(post_path(assigns(:post)))
       end
     end
 
@@ -125,7 +125,8 @@ RSpec.describe PostsController, type: :controller do
 
       it 'redirect to updated post' do
         patch :update, id: post_model.id, post: attributes_for(:post, category_id: category.id, title: 'new title')
-        expect(request).to redirect_to(post_path(post_model.id))
+        post_model.reload
+        expect(request).to redirect_to(post_path(post_model))
       end
     end
 

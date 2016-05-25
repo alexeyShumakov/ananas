@@ -1,7 +1,10 @@
 class Post < ActiveRecord::Base
+  extend FriendlyId
   include PgSearch
 
   attr_readonly :comments_count
+
+  friendly_id :slug, use: :slugged
 
   pg_search_scope :search_by_title,
     against: :title,
@@ -15,6 +18,7 @@ class Post < ActiveRecord::Base
   has_many :comments, dependent: :destroy, as: :commentable
   has_many :favorites, dependent: :destroy
 
+  validates :slug, uniqueness: true
   validates :sinopsis, :body, :title, presence: true
   validates :user, presence: true
   validates :category_id, presence: true
