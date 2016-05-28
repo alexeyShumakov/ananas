@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "no-replay@ananas-journal.ru"
+  default from: '"Ананас" <no-replay@ananas-journal.ru>', subject: 'Журнал "Ананас"'
   layout 'mailer'
 end

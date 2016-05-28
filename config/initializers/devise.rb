@@ -12,7 +12,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'no-replay@ananas-journal.ru'
+  config.mailer_sender = '"Ананас" <no-replay@ananas-journal.ru>'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -244,7 +244,7 @@ Devise.setup do |config|
 
 
 
-  config.omniauth :facebook, ENV['FB_APP_ID'], ENV['FB_APP_SECRET'] 
+  config.omniauth :facebook, ENV['FB_APP_ID'], ENV['FB_APP_SECRET']
   config.omniauth :vkontakte, ENV['VK_APP_ID'], ENV['VK_APP_SECRET']
   config.omniauth :google_oauth2, ENV['G_APP_ID'], ENV['G_APP_SECRET'], skip_jwt: true
 
