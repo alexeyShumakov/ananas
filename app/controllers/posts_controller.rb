@@ -11,8 +11,12 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post.impressions += 1
-    @post.save
+    impr_count = @post.impressionist_count(filter: :ip_address, start_date: 15.seconds.ago)
+    if impr_count < 1
+      impressionist @post
+      @post.impressions_count = @post.impressions_count + 1
+      @post.save
+    end
     @json_post = PostSerializer.new(@post, {scope: current_user}).as_json
   end
 

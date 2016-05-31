@@ -13,7 +13,7 @@
   <div class="col-md-9 post__preview">
     <%= render partial: 'posts/crud_links', locals: { post: post } %>
     <div class='icon-box'>
-        <span class="icon-box__eye"></span> <%= post.impressions %>
+        <span class="icon-box__eye"></span> <%= post.impressions_count %>
         <span class="icon-box__message"></span> <%= post.comments.size %>
     </div>
     <h3> <%= post.title %> </h3>

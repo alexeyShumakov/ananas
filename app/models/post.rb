@@ -1,6 +1,7 @@
 class Post < ActiveRecord::Base
   extend FriendlyId
   include PgSearch
+  is_impressionable
 
   attr_readonly :comments_count
 
@@ -9,7 +10,7 @@ class Post < ActiveRecord::Base
   pg_search_scope :search_by_title,
     against: :title,
     using: {tsearch: {prefix: true}},
-    ranked_by: 'impressions'
+    ranked_by: 'impressions_count'
 
   has_attached_file :avatar, styles: { medium: "850x425#" }, default_url: "/images/post/:style/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
@@ -28,7 +29,7 @@ class Post < ActiveRecord::Base
   paginates_per 10
 
   def self.best_weekly
-    where('created_at > ?', 1.week.ago).order(impressions: :desc).limit(10)
+    where('created_at > ?', 1.week.ago).order(impressions_count: :desc).limit(10)
   end
 
   def similar

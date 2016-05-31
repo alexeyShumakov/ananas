@@ -4,6 +4,9 @@ class PostSerializer < ApplicationSerializer
     :favorites_count, :has_favorite, :created_at,
     :title, :url, :impressions, :sinopsis, :avatar_medium_url
 
+  def impressions
+    object.impressions_count
+  end
   def url
     post_path(object)
   end

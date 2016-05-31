@@ -14,7 +14,7 @@ RSpec.describe "posts/show.html.erb", type: :view do
       expect(rendered).to match(post_model.title)
       expect(rendered).to match(post_model.sinopsis)
       expect(rendered).to match(post_model.body)
-      expect(rendered).to match(post_model.impressions.to_s)
+      expect(rendered).to match(post_model.impressions_count.to_s)
     end
 
     it 'show comments' do

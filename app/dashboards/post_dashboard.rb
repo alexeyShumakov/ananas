@@ -17,7 +17,7 @@ class PostDashboard < Administrate::BaseDashboard
     body: Field::Text,
     title: Field::String,
     avatar: PaperclipField,
-    impressions: Field::Number,
+    impressions_count: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }
@@ -47,7 +47,7 @@ class PostDashboard < Administrate::BaseDashboard
     :category,
     :comments,
     :comments_count,
-    :impressions,
+    :impressions_count,
     :created_at,
     :updated_at
   ]
@@ -63,7 +63,7 @@ class PostDashboard < Administrate::BaseDashboard
     :sinopsis,
     :body,
     :title,
-    :impressions,
+    :impressions_count,
     :avatar
   ]
 

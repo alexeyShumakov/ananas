@@ -2,12 +2,12 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   let(:category) { create :category }
-  let!(:post_1) { create :post, impressions: 100, category: category }
-  let!(:post_2) { create :post, impressions: 200, category: category }
-  let!(:post_3) { create :post, impressions: 300, category: category }
+  let!(:post_1) { create :post, impressions_count: 100, category: category }
+  let!(:post_2) { create :post, impressions_count: 200, category: category }
+  let!(:post_3) { create :post, impressions_count: 300, category: category }
 
   it '#best_weekly' do
-    post_4 = create :post, impressions: 10, created_at: 8.days.ago
+    post_4 = create :post, impressions_count: 10, created_at: 8.days.ago
     expect(Post.best_weekly).to match_array([post_3, post_2, post_1])
   end
 

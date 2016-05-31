@@ -23,11 +23,11 @@ RSpec.describe PostsController, type: :controller do
     end
 
     it 'increase impressions value by 1' do
-      impr = post_model.impressions
+      impr = post_model.impressions_count
       get :show, id: post_model.id
       post_model.reload
       expect(assigns(:post)).to eq(post_model)
-      expect(post_model.impressions).to eq(impr + 1)
+      expect(post_model.impressions_count).to eq(impr + 1)
     end
   end
 

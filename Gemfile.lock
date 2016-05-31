@@ -131,7 +131,11 @@ GEM
       activesupport (>= 4.1.0)
     hashdiff (0.3.0)
     hashie (3.4.3)
+    httpclient (2.8.0)
     i18n (0.7.0)
+    impressionist (1.5.1)
+      httpclient (~> 2.2)
+      nokogiri (~> 1.5)
     jbuilder (2.4.1)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
@@ -346,6 +350,7 @@ DEPENDENCIES
   faker
   friendly_id (~> 5.1.0)
   fuubar
+  impressionist
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
