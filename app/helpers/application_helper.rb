@@ -1,6 +1,7 @@
 module ApplicationHelper
+  include EmojiHelper
   def to_markdown(text)
-    Kramdown::Document.new(text).to_html.html_safe
+    Kramdown::Document.new(emojify(text)).to_html.html_safe
   end
 
   def all_categories

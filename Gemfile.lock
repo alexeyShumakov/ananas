@@ -127,6 +127,7 @@ GEM
     fuubar (2.0.0)
       rspec (~> 3.0)
       ruby-progressbar (~> 1.4)
+    gemoji (2.1.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hashdiff (0.3.0)
@@ -350,6 +351,7 @@ DEPENDENCIES
   faker
   friendly_id (~> 5.1.0)
   fuubar
+  gemoji
   impressionist
   jbuilder (~> 2.0)
   jquery-rails

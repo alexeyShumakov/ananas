@@ -8,6 +8,10 @@
 <% end %>
 <hr/>
 <%= render partial: 'md_helper' %>
+<p>
+  А теперь можно пользоваться emoji смайликами! Например :cat: и :heart: <%= to_markdown('превратятся в :cat: :heart:') %>
+  Все смайлики можно посмотреть по этой <a href="http://www.emoji-cheat-sheet.com/">ссылке</a>
+</p>
 <hr/>
 <%= react_component 'PictureUploader' %>
 <%= react_component 'MdPreview', element_id: '#post_body' %>
