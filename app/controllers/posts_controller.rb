@@ -35,7 +35,8 @@ class PostsController < ApplicationController
     @post = Post.new post_params
     @post.user = current_user
     @post.slug = post_params[:title].parameterize
-    if @post.save
+    if @post.valid?
+      set_md_body
       redirect_to @post, notice: 'Good!'
     else
       render :edit
@@ -46,6 +47,7 @@ class PostsController < ApplicationController
     authorize @post
     @post.slug = post_params[:title].parameterize
     if @post.update post_params
+      set_md_body
       redirect_to @post
     else
       render :edit
@@ -64,6 +66,11 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def set_md_body
+      @post.md_body = to_markdown @post.body
+      @post.save
+  end
 
   def set_post
     @post = Post.friendly.includes(:user, comments: [:user]).find(params[:id])

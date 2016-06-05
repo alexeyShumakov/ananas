@@ -20,7 +20,7 @@ module TextHelper
     matches = content.scan(/(\[preview\](https?:\/\/[\S]+)\[\/preview\])/)
     matches.each do |match|
       threads << Thread.new(match, content) do |match, content|
-        onebox = Onebox.preview(match[1]).to_s
+        onebox = Onebox.preview(match[1]).to_s rescue match[0]
         onebox = match[0] if onebox.blank?
         content.gsub! match[0], onebox
       end

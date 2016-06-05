@@ -12,6 +12,8 @@ class MdPreview extends React.Component {
     $.post('/posts/md_preview', { text: bodyValue }).then(
       (mdText) => {
         _this.setState({text: mdText.text, isLoading: false});
+      }, () => {
+        _this.setState({text: 'ошибка!(проверьте preview)', isLoading: false });
       }
     )
   }
@@ -27,7 +29,7 @@ class MdPreview extends React.Component {
     }
     return(
       <div>
-        <button className='pull-right btn btn-primary' onClick={this.updateMd.bind(this)} disabled={isLoading} >Показать/обновить {loadingIndicator}</button>
+        <button className='pull-right btn btn-primary' onClick={this.updateMd.bind(this)} >Показать/обновить {loadingIndicator}</button>
         <h2>Предпросмотр</h2>
         <hr/>
         <div dangerouslySetInnerHTML={this.rawMd()} className='post__preview'></div>

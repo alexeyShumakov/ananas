@@ -28,7 +28,7 @@
       <hr>
       <%= image_tag @post.avatar.url(:medium) %>
       <div>
-        <%= to_markdown @post.body %>
+        <%= @post.md_body.html_safe %>
       </div>
     </div>
 
