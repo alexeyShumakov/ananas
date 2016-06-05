@@ -12,6 +12,13 @@
   А теперь можно пользоваться emoji смайликами! Например :cat: и :heart: <%= to_markdown('превратятся в :cat: :heart:') %>
   Все смайлики можно посмотреть по этой <a href="http://www.emoji-cheat-sheet.com/">ссылке</a>
 </p>
+<p>
+  Теперь можно добавлять превью сайтов! Например <br>
+  <b>[preview]https://www.youtube.com/watch?v=tAGnKpE4NCI[/preview]</b> <br>
+  и вы увидите превью youtube видоса.
+  Обязательно пользуйтесь предпросмотром. <br>
+  Список поддерживаемых сайтов и файлов: amazon, audio file, github, google calendar, google docs, google maps, google play, image files, imgur, pastebin, steam store, soundcloud, twitter, video files, wikipedia, youtube, youku
+</p>
 <hr/>
 <%= react_component 'PictureUploader' %>
 <%= react_component 'MdPreview', element_id: '#post_body' %>

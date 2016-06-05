@@ -1,8 +1,5 @@
 module ApplicationHelper
-  include EmojiHelper
-  def to_markdown(text)
-    Kramdown::Document.new(emojify(text)).to_html.html_safe
-  end
+  include TextHelper
 
   def all_categories
     Category.all.order(:created_at)

@@ -32,6 +32,7 @@ gem 'rollbar'
 gem 'friendly_id', '~> 5.1.0'
 gem 'impressionist'
 gem 'gemoji'
+gem 'onebox'
 
 group :development, :test do
   gem 'bullet'

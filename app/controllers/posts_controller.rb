@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  include EmojiHelper
+  include TextHelper
   before_action :set_post, only: [:show, :edit, :destroy, :update]
   before_action :set_categories, only: [:edit, :new, :create, :update]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
@@ -59,8 +59,7 @@ class PostsController < ApplicationController
   end
 
   def md_preview
-    @text = emojify(params[:text])
-    @text = { text: Kramdown::Document.new(@text).to_html }
+    @text = { text: to_markdown(params[:text]) }
     render json: @text.to_json, status: :ok
   end
 

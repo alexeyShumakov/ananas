@@ -3,6 +3,10 @@
 }
 
 .post__preview {
+  iframe {
+    max-width: 100%;
+  }
+
   img {
     max-width: 100%;
   }
@@ -18,6 +22,9 @@
 }
 
 .post__main {
+  iframe {
+    max-width: 100%;
+  }
   img {
     max-width: 100%;
   }
