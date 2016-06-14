@@ -3,7 +3,7 @@ Ananas make a new version!
 To install this project on your pc follow next steps:
 1. Open an terminal
 2. cd /your/path
-3. git clone https://github.com/Sternstein/ananas.git
+3. git clone https://github.com/alexeyShumakov/ananas.git
 4. bundle install 
 5. rake db:setup
 6. ???????
