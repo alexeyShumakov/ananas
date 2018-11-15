@@ -37,6 +37,10 @@
   @include icon('icons/icon-eye.png');
 }
 
+.icon-box__crown {
+  @include icon('icons/crown.png');
+}
+
 .icon-box__like {
   @include hover;
   @include icon('icons/icon-like.png');

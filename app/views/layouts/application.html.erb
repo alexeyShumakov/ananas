@@ -16,7 +16,7 @@
       <div class="container">
         <div class="navbar-header">
           <%= link_to root_path, class: 'navbar-brand' do %>
-            <%= image_tag image_url('logo-ananas.png') %>
+            <%= image_tag image_path('logo-ananas.png') %>
           <% end %>
 
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar__collapse" aria-expanded="false">
@@ -76,23 +76,7 @@
         <%= yield %>
       </div>
       <div class="col-md-3">
-        <div class="best-posts-panel panel panel-default">
-          <div class="panel-body">
-            <h3 class='text-center' >Лучшее за неделю</h3>
-              <% Post.best_weekly.each do |post_model| %>
-                <hr>
-                <div class='text-center'>
-                  <p> <%= link_to post_model.title, post_path(post_model) %> </p>
-                  <div class='icon-box center-block'>
-                    <span class="icon-box__eye"></span> <%= post_model.impressions_count %>
-                  </div>
-                </div>
-              <% end %>
-            </ul>
-            
-          </div>
-        
-        </div>
+        <%= render 'layouts/menu' %>
         <%= render 'layouts/right_google' %>
       </div>
     </div>
@@ -117,13 +101,13 @@
           <% end %>
         </li>
         <li>
-          <%= link_to '#' do %>
+          <%= link_to 'https://vk.com/ananasjournal' do %>
             <%= image_tag('vk_logo_small_blue.png') %>
           <% end %>
         </li>
       </ul>
       <h4 class='text-center'>Ананас</h4>
-      <p class='text-center'>2016</p>
+      <p class='text-center'>2016-2018</p>
     </footer>
   </div>
 
