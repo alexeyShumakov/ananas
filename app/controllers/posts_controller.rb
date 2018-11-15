@@ -6,6 +6,16 @@ class PostsController < ApplicationController
 
   after_action :verify_authorized, only: [:new, :create, :edit, :update, :destroy]
 
+  def user_posts
+    @user = User.find(params[:id])
+    @user_posts = @user.posts
+  end
+
+  def best_authors
+    @posts = Post.best_authors.as_json.each {|x| x['url'] = user_posts_path(x['id'])}
+    render json: @posts
+  end
+
   def search
     @posts = Post.search_by_title(params[:keyword]).limit(10)
     render json: @posts

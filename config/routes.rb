@@ -24,6 +24,9 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
+  get 'users/:id/posts', to: 'posts#user_posts', as: :user_posts
+  get 'posts/best_authors', to: 'posts#best_authors', as: :best_authors
+
   root 'categories#newest'
 
   get 'categories/newest', to: 'categories#newest'

@@ -4,8 +4,8 @@
 </div>
 <div class="row">
   <div class="col-md-3">
-    <%= image_tag post.user.avatar.url(:small), class: 'img-circle center-block' %>
-    <p class='text-center'><%= post.user.username %> </p>
+    <%= link_to image_tag(post.user.avatar.url(:small), class: 'img-circle center-block'), user_posts_path(post.user.id) %>
+    <p class='text-center'><%= link_to post.user.username, user_posts_path(post.user.id) %> </p>
     <p class='text-center'><%= formated_date post %> </p>
     <p class='text-center'><%= post.category.title %> </p>
   </div>
